@@ -4,9 +4,21 @@
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (tooltip-mode -1)
+  (tooltip-mode nil)
+  (set-scroll-bar-mode nil)
+  (menu-bar-mode nil)
+  (blink-cursor-mode nil)
   (mouse-wheel-mode t)
-  (blink-cursor-mode -1))
+
+  ;; per frame defaults
+  (setq default-frame-alist
+        '(
+          (left-fringe  . 0)            ; no left fringe
+          (right-fringe . 0)            ; no right fringe
+          (cursor-color . "orange")
+          ;; add more frame-specific stuff here
+          ))
+  )
 
 (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
 
@@ -15,8 +27,11 @@
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
 
+;;; ----------------------------------------------------------------
+;;; all setq's together as one big happy family...
 (setq visible-bell t
-      fringe-mode (cons 4 0)
+      hl-line-mode t
+      enable-recursive-minibuffers t
       echo-keystrokes 0.1
       font-lock-maximum-decoration t
       inhibit-startup-message t
@@ -24,9 +39,6 @@
       color-theme-is-global t
       shift-select-mode nil
       mouse-yank-at-point t
-      require-final-newline t
-      truncate-partial-width-windows nil
-      uniquify-buffer-name-style 'forward
       ffap-machine-p-known 'reject
       whitespace-style '(trailing lines space-before-tab
                                   face indentation space-after-tab)
@@ -34,20 +46,28 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory (concat dotfiles-dir "oddmuse")
       xterm-mouse-mode t
-      save-place-file (concat dotfiles-dir "places"))
+      save-place-file (concat dotfiles-dir "places")
+
+      require-final-newline t           ; make last line end with carriage return
+      next-line-add-newlines nil        ; no NL's are created with "arrow-down"
+      truncate-partial-width-windows nil
+      diff-switches "-u"                ; unified diffs
+      x-select-enable-clipboard t       ; make emacs use the clipboard
+      uniquify-buffer-name-style 'post-forward-angle-brackets ; X<a/b>, X<a/c> for dups
+      mouse-autoselect-window t         ; "sloppy" frame focus
+      windmove-wrap-around t
+      )
+
+(set-default 'indent-tabs-mode nil)
+(set-default 'indicate-empty-lines nil)
+(set-default 'imenu-auto-rescan t)
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
 ;; Set this to whatever browser you use
-;; (setq browse-url-browser-function 'browse-url-firefox)
-;; (setq browse-url-browser-function 'browse-default-macosx-browser)
-;; (setq browse-url-browser-function 'browse-default-windows-browser)
-;; (setq browse-url-browser-function 'browse-default-kde)
-;; (setq browse-url-browser-function 'browse-default-epiphany)
-;; (setq browse-url-browser-function 'browse-default-w3m)
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "~/src/conkeror/conkeror")
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
@@ -69,10 +89,6 @@
         ido-create-new-buffer 'always
         ido-use-filename-at-point 'guess
         ido-max-prospects 10))
-
-(set-default 'indent-tabs-mode nil)
-(set-default 'indicate-empty-lines t)
-(set-default 'imenu-auto-rescan t)
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
@@ -102,28 +118,14 @@
       rng-nxml-auto-validate-flag nil)
 
 ;; Associate modes with file extensions
-
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
-(add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 
 (eval-after-load 'grep
   '(when (boundp 'grep-find-ignored-files)
     (add-to-list 'grep-find-ignored-files "target")
     (add-to-list 'grep-find-ignored-files "*.class")))
 
-;; Default to unified diffs
-(setq diff-switches "-u -w")
-
 ;; Cosmetics
-
-;; (set-face-background 'vertical-border "white")
-;; (set-face-foreground 'vertical-border "white")
-
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
@@ -143,9 +145,6 @@
 (when (eq system-type 'darwin)
   ;; Work around a bug on OS X where system-name is FQDN
   (setq system-name (car (split-string system-name "\\."))))
-
-;; make emacs use the clipboard
-(setq x-select-enable-clipboard t)
 
 ;; Get around the emacswiki spam protection
 (add-hook 'oddmuse-mode-hook

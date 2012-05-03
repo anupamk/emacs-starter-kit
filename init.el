@@ -35,7 +35,24 @@
                   ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
 (package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (require 'starter-kit-elpa)
+
+;;; --------------------------------------------------------------------------------
+;;; ensure required packages are installed at launch
+(defvar anupamk-required-packages '(ctypes
+                                    autopair
+                                    buffer-move
+                                    ;; add more packages here...
+                                    )
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (pkg anupamk-required-packages)
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -58,9 +75,10 @@
 (require 'starter-kit-registers)
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
-(require 'starter-kit-perl)
-(require 'starter-kit-ruby)
-(require 'starter-kit-js)
+
+;;; ----------------------------------------------------------------
+;;; commonly used languages
+(require 'starter-kit-c)
 
 (regen-autoloads)
 (load custom-file 'noerror)
