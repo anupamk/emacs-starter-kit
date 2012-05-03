@@ -46,7 +46,7 @@
 (defvar anupamk-required-packages '(ctypes
                                     autopair
                                     buffer-move
-                                    ;; add more packages here...
+                                    ;; FIXME add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
 
@@ -79,6 +79,7 @@
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
 (require 'starter-kit-c)
+(require 'starter-kit-erlang)
 
 (regen-autoloads)
 (load custom-file 'noerror)
