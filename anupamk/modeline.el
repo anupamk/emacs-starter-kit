@@ -1,12 +1,15 @@
 ;;; ----------------------------------------------------------------
 ;;; crazy modeline customization
-
-;; crazy mode-line customization
 (setq-default mode-line-format
               (list
                ;; the buffer name; the file name as a tool tip
                '(:eval (propertize "%b " 'face 'font-lock-keyword-face
                                    'help-echo (buffer-file-name)))
+
+               ;; show the current vc branch under which we are in...
+               "["
+               '(vc-mode vc-mode)
+               " ]"
 
                ;; line and column
                "(" ;; '%02' to set to 2 chars at least; prevents flickering
@@ -27,7 +30,6 @@
                '(:eval (propertize "%m" 'face 'font-lock-string-face
                                    'help-echo buffer-file-coding-system))
                "] "
-
 
                "[" ;; insert vs overwrite mode, input-method in a tooltip
                '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
