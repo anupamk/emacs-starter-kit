@@ -13,11 +13,20 @@
 
 
 ;;; ----------------------------------------------------------------
-;;; buffer movement keys
+;;; move cursor to different frames without mouse
 (global-set-key '[C-M-up]    'windmove-up)
 (global-set-key '[C-M-down]  'windmove-down)
 (global-set-key '[C-M-left]  'windmove-left)
 (global-set-key '[C-M-right] 'windmove-right)
+
+
+;;; ----------------------------------------------------------------
+;;; rearrange buffers in a window
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 
 ;;; ----------------------------------------------------------------
 ;;; cscope interface
