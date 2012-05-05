@@ -46,7 +46,8 @@
 (defvar anupamk-required-packages '(ctypes
                                     autopair
                                     buffer-move
-                                    ;; FIXME add more packages here...
+                                    auctex
+                                    ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
 
