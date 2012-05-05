@@ -24,5 +24,6 @@
 (require 'anupamk/modeline)
 (require 'anupamk/occur)
 (require 'anupamk/latex)
+(require 'anupamk/ido)
 (require 'anupamk/keyboard)
 
