@@ -9,6 +9,7 @@
  '(blink-cursor-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
+ '(menu-bar-mode nil)
  '(fringe-mode 0 nil (fringe))
  )
 

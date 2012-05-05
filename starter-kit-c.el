@@ -29,6 +29,8 @@
   (c-set-style "K&R")
   (setq tab-width 8
         indent-tabs-mode t
+        comment-column 60
+        comment-fill-column 2000
         c-basic-offset 8))
 
 (add-hook 'c-mode-common-hook

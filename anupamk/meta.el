@@ -45,8 +45,17 @@
       search-highlight t                ; highlight incremental searches
       mouse-autoselect-window t         ; 'sloppy' frame focus
       default-line-spacing 2
+      comment-column 60
+      comment-fill-column 2000
       ;; add more stuff here
       )
+
+(setq-default comment-column 60)
+(setq-default comment-fill-column 200)
+
+;;; ----------------------------------------------------------------
+;;; reformat man-pages to 'MANWIDTH' columns only.
+(setenv "MANWIDTH" "72")
 
 
 ;;; ----------------------------------------------------------------
