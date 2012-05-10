@@ -21,9 +21,10 @@
 
 ;;; --------------------------------------------------------------------------------
 ;;; other useful stuff
-(require 'anupamk/modeline)
+(require 'anupamk/emms)
 (require 'anupamk/occur)
 (require 'anupamk/latex)
 (require 'anupamk/ido)
+(require 'anupamk/modeline)
 (require 'anupamk/keyboard)
 
