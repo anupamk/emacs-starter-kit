@@ -4,6 +4,7 @@
 (require 'autopair)                     ; automatically pair parenthesis
 (require 'buffer-move)                  ; move buffers around
 (require 'xcscope)                      ; emacs cscope interface
+(require 'hl-line)                      ; line-highlighting
 
 
 ;;; ----------------------------------------------------------------
@@ -47,11 +48,13 @@
       default-line-spacing 2
       comment-column 60
       comment-fill-column 2000
+      global-hl-line-sticky-flag t
       ;; add more stuff here
       )
 
 (setq-default comment-column 60)
 (setq-default comment-fill-column 200)
+(global-hl-line-mode)
 
 ;;; ----------------------------------------------------------------
 ;;; reformat man-pages to 'MANWIDTH' columns only.

@@ -30,7 +30,6 @@
 ;;; ----------------------------------------------------------------
 ;;; all setq's together as one big happy family...
 (setq visible-bell t
-      hl-line-mode t
       enable-recursive-minibuffers t
       font-lock-maximum-decoration t
       inhibit-startup-message t
