@@ -27,4 +27,4 @@
 (require 'anupamk/ido)
 (require 'anupamk/modeline)
 (require 'anupamk/keyboard)
-
+(require 'anupamk/revive)

@@ -5,6 +5,7 @@
 (require 'buffer-move)                  ; move buffers around
 (require 'xcscope)                      ; emacs cscope interface
 (require 'hl-line)                      ; line-highlighting
+(require 'boxquote)                     ; clean quoting
 
 
 ;;; ----------------------------------------------------------------
