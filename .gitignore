@@ -10,3 +10,5 @@ auto-save-list
 .DS_Store
 \#*
 history
+gnus/*
+bbdb
