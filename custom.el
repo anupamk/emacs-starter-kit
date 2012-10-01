@@ -27,8 +27,8 @@
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(password-cache-expiry nil)
  '(show-paren-mode t)
- '(smtpmail-debug-info t)
- '(smtpmail-smtp-server "outbound.cisco.com")
+ '(smtpmail-debug-info t t)
+ '(smtpmail-smtp-server "outbound.cisco.com" t)
  '(tool-bar-mode nil))
 
 (custom-set-faces
@@ -36,7 +36,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Terminus" :foundry "unknown" :slant normal :weight normal :height 90 :width normal))))
+ '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal))))
  '(font-lock-keyword-face ((t (:weight normal))))
  '(font-lock-type-face ((t (:weight normal))))
  '(highline-face ((t (:background "gray30"))))
