@@ -26,10 +26,10 @@
  '(message-send-mail-function (quote smtpmail-send-it))
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(password-cache-expiry nil)
+ '(menu-bar-mode nil)
  '(show-paren-mode t)
- '(smtpmail-debug-info t t)
- '(smtpmail-smtp-server "outbound.cisco.com" t)
- '(tool-bar-mode nil))
+ '(smtpmail-debug-info t)
+ '(smtpmail-smtp-server "outbound.cisco.com"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -39,6 +39,4 @@
  '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal))))
  '(font-lock-keyword-face ((t (:weight normal))))
  '(font-lock-type-face ((t (:weight normal))))
- '(highline-face ((t (:background "gray30"))))
- '(hl-line ((t (:inherit highlight :background "gray27"))))
- '(show-paren-match ((t (:background "gray27" :foreground "#dcdccc" :weight normal)))))
+ '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))
