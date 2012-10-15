@@ -48,7 +48,6 @@
                                     auctex
                                     emms
                                     boxquote
-                                    magithub
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
