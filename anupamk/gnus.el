@@ -1,4 +1,5 @@
 (require 'anupamk/gnus-supercite)
+(require 'anupamk/gnus-bbdb)
 
 (defun get-hostname ()
   "return short hostname"
@@ -15,6 +16,12 @@
         (substring fqdn (+ 1 (length hostname))))
     ))
 
+(defun pattern-in-string-p (str pat)
+  (if (equal nil (string-match pat str))
+      nil
+    t))
+
+
 ;; common environment across multiple mail/news accounts
 (setq user-full-name "Anupam Kapoor"
       imap-log t
@@ -30,13 +37,6 @@
 
       ;; confirm message sending
       message-confirm-send t
-
-      ;; bbdb related stuff
-      bbdb-file "~/.emacs.d/bbdb"
-
-      ;; address completion based on bbdb records
-      message-setup-hook (quote (bbdb-insinuate-message))
-
 
       ;; just like it sez
       message-forward-as-mime nil
@@ -71,6 +71,7 @@
       
       )
 
+;; ----------------------------------------------------------------
 (defun setup-cisco-mail-account ()
   (interactive)
   (progn
@@ -97,8 +98,8 @@
           smtpmail-smtp-server "outbound.cisco.com"
 
           password-cache-expiry nil
-          ))
-  )                                     ; setup-cisco-mail-account
+          
+          )))
 
 
 ;; setup mail+news accounts based on current domain-name
@@ -118,14 +119,6 @@
 
 ;; setup all the accounts
 (setup-mail-news-accounts)
-
-;; bbdb customizations
-(require 'bbdb)
-(bbdb-initialize 'gnus 'message)
-
-;; setup gnus -> bbdb notifications when new addresses are loaded
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-
 
 ;; decorate field symbol with record separator
 (put 'subjects 'field-separator "\n")

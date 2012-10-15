@@ -48,7 +48,8 @@
                                     auctex
                                     emms
                                     boxquote
-                                    magithub
+                                    popup
+                                    auto-complete
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
