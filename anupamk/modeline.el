@@ -8,38 +8,49 @@
                                     (if (>= (current-column) 80)
                                         'mode-line-80col-face
                                       'mode-line-position-face)))
-                                        ; emacsclient [default -- keep?]
-                 mode-line-client
                  "  "
-                                        ; read-only or modified status
-                 (:eval
-                  (cond (buffer-read-only
-                         (propertize " RO " 'face 'mode-line-read-only-face))
-                        ((buffer-modified-p)
-                         (propertize " ** " 'face 'mode-line-modified-face))
-                        (t "      ")))
-                 "    "
-                                        ; directory and buffer/file name
+
+                 "["                    ; insert vs overwrite mode, input-method in a tooltip
+                 (:eval (propertize (if overwrite-mode "Ovr" "Ins")
+                                    'face 'font-lock-preprocessor-face))
+                 
+                                        ; was this buffer modified since the last save?
+                 (:eval (when (buffer-modified-p)
+                          (concat ","  (propertize "Mod"
+                                                   'face 'font-lock-warning-face))))
+
+                                        ; is this buffer read-only?
+                 (:eval (when buffer-read-only
+                          (concat ","  (propertize "RO"
+                                                   'face 'font-lock-type-face))))
+                 "] "
+
+                 ; directory and buffer/file name
                  (:propertize (:eval (shorten-directory default-directory 30))
                               face mode-line-folder-face)
                  (:propertize "%b"
                               face mode-line-filename-face)
-                                        ; narrow [default -- keep?]
+                 
+                 ; narrow [default -- keep?]
                  " %n "
-                                        ; mode indicators: vc, recursive edit, major mode, minor modes, process, global
+                 
+                 ; mode indicators: vc, recursive edit, major mode, minor modes, process, global
                  (vc-mode vc-mode)
                  "  %["
                  (:propertize mode-name
                               face mode-line-mode-face)
                  "%] "
+                 
                  (:eval (propertize (format-mode-line minor-mode-alist)
                                     'face 'mode-line-minor-mode-face))
                  (:propertize mode-line-process
                               face mode-line-process-face)
                  (global-mode-string global-mode-string)
-                 "    "
-                                        ; nyan-mode uses nyan cat as an alternative to %p
-                 (:eval (when nyan-mode (list (nyan-create))))
+                 "  "
+
+                 ;; add the time
+                 (:eval (propertize (format-time-string "[%H:%M %m/%d]")))
+                 " %-"
                  ))
 
 ;; Helper function
@@ -57,8 +68,6 @@
     output))
 
 ;; Extra mode line faces
-(make-face 'mode-line-read-only-face)
-(make-face 'mode-line-modified-face)
 (make-face 'mode-line-folder-face)
 (make-face 'mode-line-filename-face)
 (make-face 'mode-line-position-face)
@@ -81,15 +90,6 @@
     :inverse-video nil
     :box '(:line-width 2 :color "#2e3330" :style nil))
                        
-(set-face-attribute 'mode-line-read-only-face nil
-    :inherit 'mode-line-face
-    :foreground "#4271ae"
-    :box '(:line-width 2 :color "#4271ae"))
-(set-face-attribute 'mode-line-modified-face nil
-    :inherit 'mode-line-face
-    :foreground "#c82829"
-    :background "#ffffff"
-    :box '(:line-width 2 :color "#c82829"))
 (set-face-attribute 'mode-line-folder-face nil
     :inherit 'mode-line-face
     :foreground "gray60")
