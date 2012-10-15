@@ -21,9 +21,8 @@
                     (or (buffer-file-name) load-file-name)))
 
 ;; Load up ELPA, the package manager
-
 (add-to-list 'load-path dotfiles-dir)
-
+(add-to-list 'load-path (concat dotfiles-dir "/elpa"))
 (add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
@@ -82,7 +81,8 @@
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
 (require 'starter-kit-c)
-(require 'starter-kit-erlang)
+(require 'starter-kit-ac)
+(require 'starter-kit-golang)
 
 (regen-autoloads)
 (load custom-file 'noerror)
