@@ -25,20 +25,17 @@
  '(message-send-mail-function (quote smtpmail-send-it))
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(password-cache-expiry nil)
- '(menu-bar-mode nil)
  '(show-paren-mode t)
  '(smtpmail-debug-info t)
  '(tab-stop-list (number-sequence 8 200 8))
- '(tool-bar-mode nil)
- '(menu-bar-mode nil)
- )
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal))))
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 90 :width normal))))
  '(font-lock-keyword-face ((t (:weight normal))))
  '(font-lock-type-face ((t (:weight normal))))
  '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))

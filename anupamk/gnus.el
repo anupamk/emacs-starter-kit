@@ -120,6 +120,9 @@
 ;; setup all the accounts
 (setup-mail-news-accounts)
 
+;; customized key-bindings
+(global-set-key (kbd "<C-deletechar>") 'gnus-summary-delete-article)
+
 ;; decorate field symbol with record separator
 (put 'subjects 'field-separator "\n")
 

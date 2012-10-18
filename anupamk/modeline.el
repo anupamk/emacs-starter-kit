@@ -40,11 +40,6 @@
                  (:propertize mode-name
                               face mode-line-mode-face)
                  "%] "
-                 
-                 (:eval (propertize (format-mode-line minor-mode-alist)
-                                    'face 'mode-line-minor-mode-face))
-                 (:propertize mode-line-process
-                              face mode-line-process-face)
                  (global-mode-string global-mode-string)
                  "  "
 
@@ -72,44 +67,37 @@
 (make-face 'mode-line-filename-face)
 (make-face 'mode-line-position-face)
 (make-face 'mode-line-mode-face)
-(make-face 'mode-line-minor-mode-face)
-(make-face 'mode-line-process-face)
 (make-face 'mode-line-80col-face)
 
 (set-face-attribute 'mode-line nil
     :foreground "#acbc90"
     :background "#1e2320"
-    :height 0.9
-    :inverse-video nil
-    :box '(:line-width 2 :color "#1e2320" :style nil))
+    :height 0.8
+    :box '(:line-width 1 :color "#1e2320" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "#88b090"
     :background "#2e3330"
-    :height 0.9
-    :inverse-video nil
-    :box '(:line-width 2 :color "#2e3330" :style nil))
+    :height 0.8
+    :box '(:line-width 1 :color "#2e3330" :style nil))
                        
 (set-face-attribute 'mode-line-folder-face nil
     :inherit 'mode-line-face
     :foreground "gray60")
+
 (set-face-attribute 'mode-line-filename-face nil
     :inherit 'mode-line-face
     :foreground "#eab700"
     :weight 'bold)
+
 (set-face-attribute 'mode-line-position-face nil
     :inherit 'mode-line-face
-    :height 100)
+    :height 90)
+
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face
     :foreground "gray80")
-(set-face-attribute 'mode-line-minor-mode-face nil
-    :inherit 'mode-line-mode-face
-    :foreground "gray40"
-    :height 110)
-(set-face-attribute 'mode-line-process-face nil
-    :inherit 'mode-line-face
-    :foreground "#718c00")
+
 (set-face-attribute 'mode-line-80col-face nil
     :inherit 'mode-line-position-face
     :foreground "black" :background "#eab700")
