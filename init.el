@@ -49,7 +49,6 @@
                                     emms
                                     boxquote
                                     popup
-                                    auto-complete
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
@@ -82,7 +81,6 @@
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
 (require 'starter-kit-c)
-(require 'starter-kit-ac)
 (require 'starter-kit-golang)
 
 (regen-autoloads)

@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d/anupamk/" t)
 
 (require 'go-mode-load)
-(require 'go-autocomplete)
 
 ;; on compilation, 'go run' the current buffer
 (add-hook 'go-mode-hook
