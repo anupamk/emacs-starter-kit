@@ -92,7 +92,7 @@
 
 (set-face-attribute 'mode-line-position-face nil
     :inherit 'mode-line-face
-    :height 90)
+    :height 80)
 
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face
