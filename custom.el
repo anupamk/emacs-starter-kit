@@ -44,10 +44,12 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "microsoft" :slant normal :weight normal :height 113 :width normal))))
  '(bbdb-company ((t (:slant normal))) t)
+ '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))
  '(cscope-file-face ((((class color) (background light)) nil)))
  '(cscope-function-face ((((class color) (background light)) (:foreground "slate grey"))))
  '(cscope-line-face ((((class color) (background light)) (:foreground "gray60"))))
  '(cscope-line-number-face ((((class color) (background light)) (:foreground "gray40"))))
+ '(dired-flagged ((t (:foreground "orange red" :weight normal))))
  '(font-lock-constant-face ((t (:inherit font-lock-constant :weight normal))))
  '(font-lock-keyword-face ((t (:inherit font-lock-keyword :weight normal))))
  '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))
