@@ -66,7 +66,6 @@
 (require 'starter-kit-defuns)
 (require 'starter-kit-bindings)
 (require 'starter-kit-misc)
-(require 'starter-kit-registers)
 
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
