@@ -1,5 +1,6 @@
 (require 'anupamk/gnus-supercite)
 (require 'anupamk/gnus-bbdb)
+(require 'nnir)
 
 (defun get-hostname ()
   "return short hostname"
@@ -26,8 +27,7 @@
 (setq user-full-name "Anupam Kapoor"
       imap-log t
       debug-on-error t
-      fill-column 72
-
+      
       ;; where to store mail/news
       message-directory "~/.emacs.d/gnus/Mail/"
       gnus-directory "~/.emacs.d/gnus/Mail/"
@@ -48,6 +48,9 @@
       
       ;; gnus-startup
       gnus-startup-file "~/.emacs.d/gnus/.newsrc"
+
+      ;; don't mess long lines
+      gnus-treat-fill-long-lines nil
       
       ;; setup browser
       gnus-button-url 'browse-url-generic
@@ -72,6 +75,17 @@
       )
 
 ;; ----------------------------------------------------------------
+(defun setup-gmail-mail-account ()
+  "mails from gmail are locally stored via offlineimap"
+
+  (interactive)
+  '(nnmaildir "GMail"
+	      (directory "~/gmail-maildir/")
+	      (directory-files nnheader-directory-files-safe) 
+	      (get-new-mail nil))
+  )
+
+;; ----------------------------------------------------------------
 (defun setup-cisco-mail-account ()
   (interactive)
   (progn
@@ -79,6 +93,7 @@
           user-mail-address "akapoor@cisco.com"
 
           auth-source-save-behavior nil
+          auto-fill-mode nil
 
           ;; imap account
           gnus-message-archive-group "nnimap+mail.cisco.com:Sent Items"

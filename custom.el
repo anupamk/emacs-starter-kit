@@ -6,12 +6,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(menu-bar-mode nil)
  '(auth-source-save-behavior nil)
  '(bbdb-file "~/.emacs.d/bbdb")
  '(bbdb-north-american-phone-numbers-p nil)
  '(blink-cursor-mode nil)
  '(canlock-password "c5544a2deabafd732ee8e6fe0aa76d6fb2de1fa5")
  '(fringe-mode 0 nil (fringe))
+ '(global-font-lock-mode nil)
  '(gnus-directory "~/.emacs.d/gnus/News/")
  '(gnus-message-archive-group "nnimap+mail.cisco.com:Sent Items")
  '(gnus-secondary-select-methods (backquote ((nnimap "mail.cisco.com" (nnimap-server-address "mail.cisco.com") (nnimap-server-port 993) (nnimap-user (\, user-login-name))))))
@@ -27,6 +29,10 @@
  '(password-cache-expiry nil)
  '(show-paren-mode t)
  '(tab-stop-list (number-sequence 8 200 8))
+ '(tooltip-mode nil)
+ '(set-scroll-bar-mode nil)
+ '(blink-cursor-mode nil)
+ '(mouse-wheel-mode t)
  '(tool-bar-mode nil))
 
 (custom-set-faces
@@ -34,7 +40,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 80 :width normal))))
- '(font-lock-keyword-face ((t (:weight normal))))
- '(font-lock-type-face ((t (:weight normal))))
+ '(default ((t (:family "Consolas" :foundry "microsoft" :slant normal :weight normal :height 113 :width normal))))
+ '(bbdb-company ((t (:slant normal))) t)
+ '(cscope-file-face ((((class color) (background light)) nil)))
+ '(cscope-function-face ((((class color) (background light)) (:foreground "slate grey"))))
+ '(cscope-line-face ((((class color) (background light)) (:foreground "gray60"))))
+ '(cscope-line-number-face ((((class color) (background light)) (:foreground "gray40"))))
  '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))

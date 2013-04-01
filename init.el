@@ -43,12 +43,8 @@
 ;;; --------------------------------------------------------------------------------
 ;;; ensure required packages are installed at launch
 (defvar anupamk-required-packages '(ctypes
-                                    autopair
                                     buffer-move
-                                    auctex
-                                    emms
                                     boxquote
-                                    popup
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
@@ -59,24 +55,17 @@
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
-
 (require 'cl)
 (require 'saveplace)
 (require 'ffap)
 (require 'uniquify)
-(require 'ansi-color)
 (require 'recentf)
 
-;; backport some functionality to Emacs 22 if needed
-(require 'dominating-file)
-
 ;; Load up starter kit customizations
-
 (require 'starter-kit-defuns)
 (require 'starter-kit-bindings)
 (require 'starter-kit-misc)
 (require 'starter-kit-registers)
-(require 'starter-kit-eshell)
 
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
@@ -98,3 +87,5 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
 ;;; init.el ends here
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)

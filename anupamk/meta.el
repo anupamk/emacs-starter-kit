@@ -40,14 +40,11 @@
 
 ;;; ----------------------------------------------------------------
 ;;; some more sane defaults
-(setq enable-recursive-minibuffers t
-      require-final-newline t           ; make last line end with carriage-return
-      next-line-add-newlines nil        ; newlines not created with arrow-down
-      search-highlight t                ; highlight incremental searches
-      mouse-autoselect-window t         ; 'sloppy' frame focus
+(setq search-highlight t                ; highlight incremental searches
       default-line-spacing 2
       comment-column 60
       comment-fill-column 2000
+      initial-scratch-message nil	; *scratch* buffer without messages
 
       ;; add more stuff here
       )
@@ -144,9 +141,18 @@ automatically in programming modes. Quite handy."
 ;;; omit uninteresting files
 (add-hook 'dired-mode-hook
           (lambda ()
-            (dired-omit-mode t)         ; omit uninteresting files in all dired buffers
+            ; omit uninteresting files in all dired buffers
+            (dired-omit-mode t)
+
+            ; human readable sizes, and files sorted numerically
+            (setq-default dired-listing-switches "-aGghlv --group-directories-first --time-style=long-iso")
+
+            ; stop prompting for recursive copies
+            (setq dired-recursive-copies 'always)
+
+            
             (setq dired-omit-files (concat dired-omit-files "^#\\|\\.$|\\.beam|\\.pyc|\\.o|\\.a|\\.so"
-                               ))
+                                           ))
             ))
 
 ;;; 

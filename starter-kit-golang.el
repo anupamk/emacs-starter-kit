@@ -12,7 +12,7 @@
                      (concat "go run " file))))))
 
 ;; run 'gofmt' on the file before saving.
-(add-hook 'before-save-hook #'gofmt-before-save)
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;;; ----------------------------------------------------------------
 ;;; starter-kit-golang ends here
