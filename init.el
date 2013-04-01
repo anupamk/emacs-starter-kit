@@ -45,6 +45,7 @@
 (defvar anupamk-required-packages '(ctypes
                                     buffer-move
                                     boxquote
+				    autopair
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
