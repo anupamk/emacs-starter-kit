@@ -6,7 +6,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(menu-bar-mode nil)
  '(auth-source-save-behavior nil)
  '(bbdb-file "~/.emacs.d/bbdb")
  '(bbdb-north-american-phone-numbers-p nil)
@@ -20,20 +19,23 @@
  '(gnus-startup-file "~/.emacs.d/gnus/.newsrc")
  '(gnus-startup-hook (quote (bbdb-insinuate-gnus (lambda nil (define-key gnus-summary-mode-map ":" (quote bbdb/gnus-show-all-recipients))))))
  '(gnutls-algorithm-priority "performance")
+ '(menu-bar-mode nil)
  '(message-confirm-send t)
  '(message-directory "~/.emacs.d/gnus/Mail/")
  '(message-forward-as-mime nil)
  '(message-make-forward-subject-function (lambda (subject) (if (string-match "^FW: " subject) subject (concat "FW: " subject))))
  '(message-send-mail-function (quote smtpmail-send-it))
  '(message-setup-hook (quote (bbdb-insinuate-message)))
+ '(mouse-wheel-mode t)
  '(password-cache-expiry nil)
+ '(set-scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-stop-list (number-sequence 8 200 8))
- '(tooltip-mode nil)
  '(set-scroll-bar-mode nil)
  '(blink-cursor-mode nil)
  '(mouse-wheel-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -46,4 +48,6 @@
  '(cscope-function-face ((((class color) (background light)) (:foreground "slate grey"))))
  '(cscope-line-face ((((class color) (background light)) (:foreground "gray60"))))
  '(cscope-line-number-face ((((class color) (background light)) (:foreground "gray40"))))
+ '(font-lock-constant-face ((t (:inherit font-lock-constant :weight normal))))
+ '(font-lock-keyword-face ((t (:inherit font-lock-keyword :weight normal))))
  '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))
