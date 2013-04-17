@@ -42,8 +42,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :foundry "microsoft" :slant normal :weight normal :height 113 :width normal))))
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 90 :width normal))))
  '(bbdb-company ((t (:slant normal))) t)
+ '(bold ((t nil)))
  '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))
  '(cscope-file-face ((((class color) (background light)) nil)))
  '(cscope-function-face ((((class color) (background light)) (:foreground "slate grey"))))
@@ -52,4 +53,16 @@
  '(dired-flagged ((t (:foreground "orange red" :weight normal))))
  '(font-lock-constant-face ((t (:inherit font-lock-constant :weight normal))))
  '(font-lock-keyword-face ((t (:inherit font-lock-keyword :weight normal))))
+ '(font-lock-type-face ((t (:inherit font-lock-type :weight normal))))
+ '(gnus-group-mail-3 ((t (:inherit zenburn-primary-1 :weight normal :width normal))))
+ '(gnus-group-mail-3-empty ((t (:foreground "gray28" :inverse-video nil))))
+ '(gnus-group-news-3 ((t nil)))
+ '(gnus-header-from ((t (:inherit message-header-from :weight normal :height 1.1))))
+ '(gnus-header-subject ((t (:inherit message-header-subject :slant italic :weight normal))))
+ '(gnus-signature ((t (:foreground "gray26"))))
+ '(gnus-summary-high-unread ((t (:inherit zenburn-foreground :weight normal))))
+ '(gnus-summary-selected ((t (:inherit zenburn-primary-1 :weight normal))))
+ '(message-header-cc ((t (:inherit zenburn-primary-1 :weight normal))))
+ '(message-header-subject ((t (:inherit zenburn-primary-2 :weight normal))))
+ '(message-header-to ((t (:inherit zenburn-primary-1 :weight normal))))
  '(show-paren-match ((t (:background "#1e2320" :foreground "#acbc90" :weight normal)))))
