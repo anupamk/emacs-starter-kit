@@ -83,15 +83,6 @@
 
 
 ;;; ----------------------------------------------------------------
-;;; no accidental emacs-kill
-(defun no-way ()
-  (interactive)
-  (message (concat "NO, I'm sticking here! To kill emacs for real, use \'M-x"
-		   " kill-emacs\'.")))
-(global-set-key '[C-xC-c] 'no-way)
-
-
-;;; ----------------------------------------------------------------
 ;;; autopair-mode for opening paired characters e.g. ( ), { }, [ ]
 ;;; etc. the second half is added automatically, and the cursor placed
 ;;; in the middle.

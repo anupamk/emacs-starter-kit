@@ -39,6 +39,16 @@
 ;;; manual entry for word at point
 (global-set-key '[f10] (lambda () (interactive) (manual-entry (current-word))))
 
+
+;;; ----------------------------------------------------------------
+;;; no accidental emacs-kill
+(defun no-way ()
+  (interactive)
+  (message (concat "NO, I'm STICKING here! To kill emacs for real, use \'M-x"
+		   " kill-emacs\'.")))
+(global-unset-key [(control x)(control c)])
+(global-set-key [(control x)(control c)] 'no-way)
+
 ;;; ----------------------------------------------------------------
 ;;; anupamk/keyboard ends here
 (provide 'anupamk/keyboard)
