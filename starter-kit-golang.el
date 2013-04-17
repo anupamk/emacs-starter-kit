@@ -6,6 +6,13 @@
 ;; on compilation, 'go run' the current buffer
 (add-hook 'go-mode-hook
           (lambda ()
+
+	    ;; 
+	    ;; Are you annoyed by error returns cluttering your code visually?
+	    ;;  - Taru Karttunen (comp.lang.go.general)
+	    (highlight-regexp 
+                    "if e\\(rr\\)?\\s-*!=\\s-*nil\\s-*{\n\\s-*return\\s-*\\(nil,\\s-*\\)*e\\(rr\\)?\n\\s-*}"
+                    'shadow)
             (unless (file-exists-p "Makefile")
               (set (make-local-variable 'compile-command)
                    (let ((file (file-name-nondirectory buffer-file-name)))
