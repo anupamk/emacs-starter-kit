@@ -72,13 +72,13 @@
 (set-face-attribute 'mode-line nil
     :foreground "#acbc90"
     :background "#1e2320"
-    :height 0.8
+    :height 1.0
     :box '(:line-width 1 :color "#1e2320" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "#88b090"
     :background "#2e3330"
-    :height 0.8
+    :height 1.0
     :box '(:line-width 1 :color "#2e3330" :style nil))
                        
 (set-face-attribute 'mode-line-folder-face nil
@@ -92,7 +92,7 @@
 
 (set-face-attribute 'mode-line-position-face nil
     :inherit 'mode-line-face
-    :height 80)
+    :height 140)
 
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face
