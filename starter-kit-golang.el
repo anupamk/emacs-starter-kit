@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/usr/local/go/misc/emacs" t)
+(add-to-list 'load-path "/usr/local/go/misc/emacs" t)
 (add-to-list 'load-path "~/.emacs.d/anupamk/" t)
 
 (require 'go-mode-load)
