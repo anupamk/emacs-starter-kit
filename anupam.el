@@ -22,3 +22,4 @@
 (require 'anupamk/modeline)
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
+(require 'anupamk/dired)
