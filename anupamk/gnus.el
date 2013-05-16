@@ -27,6 +27,7 @@
 (setq user-full-name "Anupam Kapoor"
       imap-log t
       debug-on-error t
+      fill-column 72
       
       ;; where to store mail/news
       message-directory "~/.emacs.d/gnus/Mail/"
@@ -49,9 +50,6 @@
       ;; gnus-startup
       gnus-startup-file "~/.emacs.d/gnus/.newsrc"
 
-      ;; don't mess long lines
-      gnus-treat-fill-long-lines nil
-      
       ;; setup browser
       gnus-button-url 'browse-url-generic
       browse-url-generic-program "chromium"
