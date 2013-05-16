@@ -42,7 +42,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 90 :width normal))))
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 120 :width normal))))
  '(bbdb-company ((t (:slant normal))) t)
  '(bold ((t nil)))
  '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))
@@ -51,6 +51,8 @@
  '(cscope-line-face ((((class color) (background light)) (:foreground "gray60"))))
  '(cscope-line-number-face ((((class color) (background light)) (:foreground "gray40"))))
  '(dired-flagged ((t (:foreground "orange red" :weight normal))))
+ '(font-lock-comment ((t (:foreground "#525252"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "#727272"))))
  '(font-lock-constant-face ((t (:inherit font-lock-constant :weight normal))))
  '(font-lock-keyword-face ((t (:inherit font-lock-keyword :weight normal))))
  '(font-lock-type-face ((t (:inherit font-lock-type :weight normal))))
@@ -62,6 +64,7 @@
  '(gnus-signature ((t (:foreground "gray26"))))
  '(gnus-summary-high-unread ((t (:inherit zenburn-foreground :weight normal))))
  '(gnus-summary-selected ((t (:inherit zenburn-primary-1 :weight normal))))
+ '(hl-line ((t (:background "#424242"))))
  '(message-header-cc ((t (:inherit zenburn-primary-1 :weight normal))))
  '(message-header-subject ((t (:inherit zenburn-primary-2 :weight normal))))
  '(message-header-to ((t (:inherit zenburn-primary-1 :weight normal))))

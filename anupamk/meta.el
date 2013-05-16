@@ -121,5 +121,9 @@ automatically in programming modes. Quite handy."
 
 
 ;;; ----------------------------------------------------------------
+;;; enable hl-line-mode everywhere, prettier ;)
+(global-hl-line-mode)
+
+;;; ----------------------------------------------------------------
 ;;; anupamk/meta ends here
 (provide 'anupamk/meta)
