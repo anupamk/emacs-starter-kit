@@ -31,9 +31,6 @@
  '(set-scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-stop-list (number-sequence 8 200 8))
- '(set-scroll-bar-mode nil)
- '(blink-cursor-mode nil)
- '(mouse-wheel-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 
@@ -42,7 +39,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 120 :width normal))))
+ '(default ((t (:inherit nil :stipple nil :background "#ff8c00" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "xos4" :family "terminus"))))
  '(bbdb-company ((t (:slant normal))) t)
  '(bold ((t nil)))
  '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))
