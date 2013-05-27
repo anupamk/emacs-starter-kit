@@ -70,7 +70,25 @@
 (recentf-mode 1)
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'turn-on-flyspell)
+
+;; some flyspell related customizations before turning it on...
+(setq ispell-program-name "aspell"
+      ispell-extra-args '("--sug-mode=ultra")
+      flyspell-default-dictionary "english"
+
+      ; dont print messages for every word. too taxing
+      flyspell-issue-message-flag nil
+      )
+
+;; mode specific customizations here.
+
+;; enable flyspell in different modes here.
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda() (flyspell-mode t))))
+
+;; disable flyspell in different modes here.
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda() (flyspell-mode nil))))
 
 (defvar coding-hook nil
   "Hook that gets run on activation of any programming mode.")
