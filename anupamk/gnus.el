@@ -61,9 +61,15 @@
       gnus-nov-is-evil nil              ; NOV == news-overview, fast-summary-generation
 
       ;; message-subject handling
-      gnus-thread-hide-subtree t      
-      gnus-thread-ignore-subject t
+      gnus-thread-hide-subtree t
+
+      ;; articles with different subjects from their parents start
+      ;; different threadz.
+      gnus-thread-ignore-subject nil
+
+      ;; how do we organize threadz ?
       gnus-summary-thread-gathering-function 'gnus-gather-threads-by-subject
+      gnus-thread-sort-functions '(gnus-thread-sort-by-date)
 
       ;; post all messages to self as well...
       gnus-parameters '((".*"
@@ -91,7 +97,7 @@
           user-mail-address "akapoor@cisco.com"
 
           auth-source-save-behavior nil
-          auto-fill-mode nil
+          auto-fill-mode t
 
           ;; imap account
           gnus-message-archive-group "nnimap+mail.cisco.com:Sent Items"
@@ -139,6 +145,25 @@
 ;; decorate field symbol with record separator
 (put 'subjects 'field-separator "\n")
 
+;;
+;; customized mail-markers a la gmail style for highlighting mails
+;; addressed to me or a group etc.
+;;
+(defvar *anupam-mails*
+        "akapoor@cisco\\.com\\|anupam.kapoor@gmail\\.com")
+(defun anupam:gnus-user-format-function-r (headers)
+  (let ((to (gnus-extra-header 'To headers)))
+    (if (string-match *anupam-mails* to)
+        (if (string-match "," to) "~" "»")
+        (if (or (string-match *anupam-mails*
+                              (gnus-extra-header 'Cc headers))
+                (string-match *anupam-mails*
+                              (gnus-extra-header 'BCc headers)))
+            "~"
+            " "))))
+
+(defalias 'gnus-user-format-function-r 'anupam:gnus-user-format-function-r)
+
 ;; customized group-format
 (defun gnus-user-format-function-G (arg) 
   (concat (car (cdr gnus-tmp-method)) ":"
@@ -170,6 +195,13 @@
   "display much nicer (relatively speaking) summary buffer"
   (interactive)
 
+  ;;
+  ;; if you want to enter unicode characters, do this
+  ;;    C-x 8 <RETURN> <UNICODE-CHARACTER-NAME>
+  ;; UNICODE-CHARACTER-NAME is obatained from "http://en.wiktionary.org/wiki/Appendix:Unicode/Box_Drawing"
+  ;; for example, a 'RIGHTWARDS ARROW' gives us '→'
+  ;;
+
   ;; summary buffer format
   (setq gnus-summary-same-subject ""
         gnus-sum-thread-tree-root ""
@@ -179,18 +211,18 @@
         gnus-sum-thread-tree-single-leaf "`-> ")
 
   ;; summary face format
-  (setq gnus-face-1 'normal
-        gnus-face-2 'normal
-        gnus-face-3 'normal
-        gnus-face-4 'normal
-        gnus-face-5 'normal
-        gnus-face-6 'normal
-        gnus-summary-line-format (concat "%*%5{%U%R%}" 
-                                         "%4{|%}"
+  (setq gnus-face-1 'default
+        gnus-face-2 'default
+        gnus-face-3 'default
+        gnus-face-4 'default
+        gnus-face-5 'default
+        gnus-face-6 'default
+        gnus-summary-line-format (concat "%1{%ur%}%*%5{%U%R%}"
+					 "%4{┊%}"
                                          "%2{%d%}"
-                                         "%4{|%}"
+                                         "%4{┊%}"
                                          "%2{ %}%-24,24n"
-                                         "%4{|%}" 
+                                         "%4{┊%}"
                                          "%2{ %}%3{%B%}%1{%s%}\n"))
 
   ;; buffer configuration
