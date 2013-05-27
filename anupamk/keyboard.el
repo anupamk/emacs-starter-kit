@@ -50,6 +50,16 @@
 (global-set-key [(control x)(control c)] 'no-way)
 
 ;;; ----------------------------------------------------------------
+;;; darwin specific stuff
+(when (eq system-type 'darwin)
+  (setq mac-allow-anti-aliasing nil	; antialiased fonts are waaay better on osx
+	mac-option-key-is-meta nil	; use 'command-key' as meta
+	mac-command-key-is-meta t
+	mac-command-modifier 'meta
+	mac-option-modifier 'none
+	))
+
+;;; ----------------------------------------------------------------
 ;;; anupamk/keyboard ends here
 (provide 'anupamk/keyboard)
 
