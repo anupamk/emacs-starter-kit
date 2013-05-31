@@ -40,7 +40,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#ff8c00" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "xos4" :family "terminus"))))
- ;; '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 160 :width normal))))
  '(bbdb-company ((t (:slant normal))) t)
  '(bold ((t nil)))
  '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))
@@ -50,7 +49,8 @@
  '(cscope-line-number-face ((((class color) (background light)) (:foreground "gray40"))))
  '(dired-flagged ((t (:foreground "orange red" :weight normal))))
  '(font-lock-comment ((t (:foreground "#525252"))))
- '(font-lock-comment-delimiter-face ((t (:foreground "#727272"))))
+ '(font-lock-comment-delimiter-face ((t (:inherit font-lock-comment-delimiter :foreground "#828282"))))
+ '(font-lock-comment-face ((t (:inherit font-lock-comment :foreground "#626262"))))
  '(font-lock-constant-face ((t (:inherit font-lock-constant :weight normal))))
  '(font-lock-keyword-face ((t (:inherit font-lock-keyword :weight normal))))
  '(font-lock-type-face ((t (:inherit font-lock-type :weight normal))))
