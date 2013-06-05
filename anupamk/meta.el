@@ -124,6 +124,12 @@ automatically in programming modes. Quite handy."
 ;;; enable hl-line-mode everywhere, prettier ;)
 (global-hl-line-mode)
 
+
+;; ----------------------------------------------------------------
+;; proportional font for text-mode buffers
+(add-hook 'text-mode-hook 'variable-pitch-mode)
+
+
 ;;; ----------------------------------------------------------------
 ;;; anupamk/meta ends here
 (provide 'anupamk/meta)
