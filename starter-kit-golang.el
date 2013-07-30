@@ -10,14 +10,6 @@
 	    ;; spelling correction comments and strings only
 	    (flyspell-prog-mode)
 
-	    ;; 
-	    ;; Are you annoyed by error returns cluttering your code visually?
-	    ;;  - Taru Karttunen (comp.lang.go.general)
-	    ;;
-	    (highlight-regexp 
-                    "if e\\(rr\\)?\\s-*!=\\s-*nil\\s-*{\n\\s-*return\\s-*\\(nil,\\s-*\\)*e\\(rr\\)?\n\\s-*}"
-                    'shadow)
-
 	    ;; a trivial hack for building source files
             (unless (file-exists-p "Makefile")
               (set (make-local-variable 'compile-command)
