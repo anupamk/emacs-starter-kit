@@ -9,7 +9,10 @@
 (global-set-key '[C-return] 'compile)                           ; compile stuff
 (global-set-key '[C-M-a]    'c-beginning-of-defun)              ; begining of a 'defun'
 (global-set-key (kbd "M-r") 'isearch-forward-regexp)
-(global-set-key (kbd "RET") 'newline-and-indent)                ; just like it sez
+
+;;; ----------------------------------------------------------------
+;;; automatic electric (newline+indent) indentation
+(electric-indent-mode +1)
 
 
 ;;; ----------------------------------------------------------------

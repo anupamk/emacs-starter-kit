@@ -28,7 +28,6 @@
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(mouse-wheel-mode t)
  '(password-cache-expiry nil)
- '(set-scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-stop-list (number-sequence 8 200 8))
  '(tool-bar-mode nil)
@@ -39,7 +38,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#ff8c00" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "xos4" :family "terminus"))))
+ '(default ((t (:inherit nil :stipple nil :background "#ff8c00" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "xos4" :family "terminus"))))
  '(bbdb-company ((t (:slant normal))) t)
  '(bold ((t nil)))
  '(compilation-error ((t (:inherit error :foreground "orange red" :weight normal))))

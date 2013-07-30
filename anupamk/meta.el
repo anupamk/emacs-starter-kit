@@ -125,10 +125,41 @@ automatically in programming modes. Quite handy."
 (global-hl-line-mode)
 
 
-;; ----------------------------------------------------------------
-;; proportional font for text-mode buffers
-(add-hook 'text-mode-hook 'variable-pitch-mode)
+;;; ----------------------------------------------------------------
+;;; google selected region from within...
+(defun google-it ()
+  "Google the selected region if any, display a query prompt otherwise."
+  (interactive)
+  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+		      (url-hexify-string (if mark-active
+					     (buffer-substring (region-beginning) (region-end))
+					   (read-string "Google: "))))
+	      )
+  )					; google-it(...)
+(global-set-key (kbd "C-c g") 'google-it)
 
+;;; ----------------------------------------------------------------
+;;; enable CamelCase aware editing for all programming modes
+(add-hook 'prog-mode-hook 'subword-mode)
+
+;;; ----------------------------------------------------------------
+;;; tramp stuff
+
+;;; *no* need for zsh over tramp
+(eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+
+
+(defun edit-file-as-root (&optional arg)
+  "Edit currently visited file as root. With a prefix ARG prompt
+   for a file to visit. Will also prompt for a file to visit if
+   current buffer is not visiting a file."
+  
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/ssh:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/ssh:root@localhost:" buffer-file-name))))
+(global-set-key (kbd "C-x C-r") 'edit-file-as-root)
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/meta ends here

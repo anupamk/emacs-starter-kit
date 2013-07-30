@@ -27,6 +27,8 @@
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
+
+;; detach custom file from other init files
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
 (require 'package)
