@@ -217,7 +217,7 @@
         gnus-face-4 'default
         gnus-face-5 'default
         gnus-face-6 'default
-        gnus-summary-line-format (concat "%1{%ur%}%*%5{%U%R%}"
+        gnus-summary-line-format (concat "%*%5{%U%R%}"
 					 "%4{┊%}"
                                          "%2{%d%}"
                                          "%4{┊%}"
