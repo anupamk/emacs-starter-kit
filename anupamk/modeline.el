@@ -12,7 +12,7 @@
 
                  "["                    ; insert vs overwrite mode, input-method in a tooltip
                  (:eval (propertize (if overwrite-mode "Ovr" "Ins")
-                                    'face 'font-lock-preprocessor-face))
+                                    'face 'mode-line-mode-face))
                  
                                         ; was this buffer modified since the last save?
                  (:eval (when (buffer-modified-p)
@@ -72,13 +72,11 @@
 (set-face-attribute 'mode-line nil
     :foreground "#acbc90"
     :background "#1e2320"
-    :height 0.8
     :box '(:line-width 1 :color "#1e2320" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "#88b090"
     :background "#2e3330"
-    :height 0.8
     :box '(:line-width 1 :color "#2e3330" :style nil))
                        
 (set-face-attribute 'mode-line-folder-face nil
@@ -91,8 +89,7 @@
     :weight 'bold)
 
 (set-face-attribute 'mode-line-position-face nil
-    :inherit 'mode-line-face
-    :height 80)
+    :inherit 'mode-line-face)
 
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face

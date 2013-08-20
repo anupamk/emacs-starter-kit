@@ -2,19 +2,6 @@
 ;;
 ;; Part of the Emacs Starter Kit
 
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-
-  ;; per frame defaults
-  (setq default-frame-alist
-        '(
-          (left-fringe  . 0)            ; no left fringe
-          (right-fringe . 0)            ; no right fringe
-          (cursor-color . "orange")
-          ;; add more frame-specific stuff here
-          ))
-  )
-
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)

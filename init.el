@@ -28,7 +28,9 @@
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 
-;; detach custom file from other init files
+;; detach custom file from other init files. this file is loaded
+;; *after* the theme specific stuff is loaded in 'anupam.el' to
+;; override certain colors with my stuff.
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
 (require 'package)
