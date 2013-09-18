@@ -121,11 +121,6 @@ automatically in programming modes. Quite handy."
 
 
 ;;; ----------------------------------------------------------------
-;;; enable hl-line-mode everywhere, prettier ;)
-(global-hl-line-mode)
-
-
-;;; ----------------------------------------------------------------
 ;;; google selected region from within...
 (defun google-it ()
   "Google the selected region if any, display a query prompt otherwise."
@@ -136,7 +131,7 @@ automatically in programming modes. Quite handy."
 					   (read-string "Google: "))))
 	      )
   )					; google-it(...)
-(global-set-key (kbd "C-c g") 'google-it)
+(global-set-key (kbd "C-c G") 'google-it)
 
 ;;; ----------------------------------------------------------------
 ;;; enable CamelCase aware editing for all programming modes
