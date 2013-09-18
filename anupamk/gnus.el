@@ -122,22 +122,23 @@
 
 
 ;; setup mail+news accounts based on current domain-name
-(defun setup-mail-news-accounts ()
-  (let ((my-domain (get-domainname)))
-    (cond ((string= "cisco.com" my-domain)
-           (setup-cisco-mail-account))
+;; (defun setup-mail-news-accounts ()
+;;   (let ((my-domain (get-domainname)))
+;;     (cond ((string= "cisco.com" my-domain)
+;;            (setup-cisco-mail-account))
           
-          (t (do-default-setup)))
+;;           (t (do-default-setup)))
 
     
-    ;; check mail+news when idle
-    (gnus-demon-add-handler 'gnus-group-get-new-news 10 15)
-    (gnus-demon-init)
+;;     ;; check mail+news when idle
+;;     (gnus-demon-add-handler 'gnus-group-get-new-news 10 15)
+;;     (gnus-demon-init)
     
-    ))
+;;     ))
 
 ;; setup all the accounts
-(setup-mail-news-accounts)
+;; (setup-mail-news-accounts)
+(setup-cisco-mail-account)
 
 ;; customized key-bindings
 (global-set-key (kbd "<C-deletechar>") 'gnus-summary-delete-article)
