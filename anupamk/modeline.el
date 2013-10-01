@@ -104,7 +104,7 @@
 (require 'powerline)
 
 ;; powerline specific customization
-(setq powerline-arrow-shape 'half)
+(setq powerline-arrow-shape 'arrow14)
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/modeline ends here

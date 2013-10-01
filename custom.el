@@ -36,13 +36,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+
+ '(default ((t (:inherit nil :slant normal :weight normal :height 120 :width normal :foundry "xos4" :family "terminus"))))
+ ;; '(default ((t (:inherit nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(gnus-header-content ((t (:inherit message-header-other :slant italic))))
  '(gnus-header-name ((t (:inherit message-header-name))))
  '(gnus-header-subject ((t (:inherit message-header-subject))))
- '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
- '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
- '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+ '(mode-line ((t (:foreground "black" :background "dark slate gray" :box nil))))
  '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
  )
 
