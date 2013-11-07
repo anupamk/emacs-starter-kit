@@ -43,3 +43,4 @@
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
 (require 'anupamk/dired)
+(require 'anupamk/multi-term)
