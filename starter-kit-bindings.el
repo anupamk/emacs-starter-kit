@@ -27,9 +27,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
-
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
@@ -55,9 +52,6 @@
 
 ;; If you want to be able to M-x without meta (phones, etc)
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
-
-;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x C-h") 'view-url)
 
 ;; Help should search more than just commands
 (global-set-key (kbd "C-h a") 'apropos)
