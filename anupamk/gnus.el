@@ -100,16 +100,14 @@
           auto-fill-mode t
 
           ;; imap account
-          gnus-message-archive-group "nnimap+mail.cisco.com:Sent Items"
+          ;; gnus-message-archive-group "nnimap+mail.cisco.com:Sent Items"
           gnus-secondary-select-methods  (backquote (
                                                      ;; cisco news
                                                      (nntp "news.cisco.com")
                                                      
-                                                     ;; cisco-mail
-                                                     (nnimap "mail.cisco.com"
-                                                             (nnimap-server-address "mail.cisco.com")
-                                                             (nnimap-server-port 993)
-                                                             (nnimap-user (\, user-login-name)))))
+						     ;; add more accounts here...
+
+						     ))
     
           ;; sending mail
           message-send-mail-function (quote smtpmail-send-it)
@@ -139,6 +137,11 @@
 ;; setup all the accounts
 ;; (setup-mail-news-accounts)
 (setup-cisco-mail-account)
+
+;; check mail+news when idle
+(gnus-demon-add-handler 'gnus-group-get-new-news 10 15)
+(gnus-demon-init)
+
 
 ;; customized key-bindings
 (global-set-key (kbd "<C-deletechar>") 'gnus-summary-delete-article)
