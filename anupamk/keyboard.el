@@ -52,6 +52,14 @@
 (global-unset-key [(control x)(control c)])
 (global-set-key [(control x)(control c)] 'no-way)
 
+;; since we are starting a deamonized emacs, with various emacs-client
+;; windows all over the place, prevent 'kill-emacs' from doing
+;; anything...
+(defadvice kill-emacs (around emacs-immortal)
+  (message "immortal emacs")
+  nil)
+(ad-activate 'kill-emacs)
+
 ;;; ----------------------------------------------------------------
 ;;; darwin specific stuff
 (when (eq system-type 'darwin)
