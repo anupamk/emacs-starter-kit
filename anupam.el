@@ -5,18 +5,11 @@
 ;;; generic stuff
 (require 'anupamk/meta)
 
+
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
-(add-to-list 'load-path (concat dotfiles-dir "/3rdparty/color-theme"))
-(require 'color-theme)
-(color-theme-initialize)
-
-(add-to-list 'load-path (concat dotfiles-dir "/3rdparty/tomorrow-night"))
-(require 'color-theme-tomorrow)
-
-
-;; (color-theme-blue-mood)
-(color-theme-tomorrow-night-eighties)
+;; (load-file "~/.emacs.d/themes/zenburn-emacs/zenburn-theme.el")
+;; (load-theme 'zenburn t)
 
 ;; setup custom stuff here so that my settings override theme specific stuff
 (when window-system
@@ -25,6 +18,8 @@
 			      ;; no fringes
 			      (left-fringe  . 0)
 			      (right-fringe . 0)
+			      (cursor-color . "#000000")
+			      (font . "Akkurat-Mono-10")
 
 			      ;; (background-color . "gray55")
 			      ;; (cursor-color . "green yellow")
@@ -44,3 +39,6 @@
 (require 'anupamk/revive)
 (require 'anupamk/dired)
 (require 'anupamk/multi-term)
+(require 'anupamk/ido-mode-config)
+;; (require 'anupamk/mu4e-config)
+

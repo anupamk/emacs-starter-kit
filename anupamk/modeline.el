@@ -22,7 +22,7 @@
                                         ; is this buffer read-only?
                  (:eval (when buffer-read-only
                           (concat ","  (propertize "RO"
-                                                   'face 'font-lock-type-face))))
+                                                   'face 'mode-line-filename-face))))
                  "] "
 
                  ; directory and buffer/file name
