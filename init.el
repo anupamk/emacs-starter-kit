@@ -33,9 +33,9 @@
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
 (require 'package)
-(dolist (source '(("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")
-		  ("melpa" . "http://melpa.milkbox.net/packages/")
+(dolist (source '(("marmalade"	. "http://marmalade-repo.org/packages/")
+                  ("elpa"	. "http://tromey.com/elpa/")
+		  ("melpa"	. "http://melpa.milkbox.net/packages/")
 		  ))
 
   (add-to-list 'package-archives source t))
@@ -53,6 +53,12 @@
                                     buffer-move
                                     boxquote
 				    autopair
+				    bbdb
+				    color-theme
+				    dired+
+				    magit
+				    multi-term
+				    gnus
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
@@ -77,7 +83,7 @@
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
 (require 'starter-kit-c)
-(require 'starter-kit-golang)
+;; (require 'starter-kit-golang)
 
 (regen-autoloads)
 (load custom-file 'noerror)
