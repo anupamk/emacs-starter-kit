@@ -8,7 +8,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-file "~/.emacs.d/themes/soft-stone-theme.elc")
+  (load-file "~/.emacs.d/themes/soft-stone-theme.el")
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
@@ -23,10 +23,7 @@
 			      (vertical-scroll-bars . nil)
 
 			      ;; basic stuff is same for all frames
-			      ;; (background-color . "gray55")
 			      (cursor-color . "dark red")
-			      ;; (font . "Meslo LG M 11")
-			      ;; (font . "Menlo 11")
 			      
 			      ;; add more frame-specific stuff here
 			      )
@@ -40,7 +37,6 @@
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
-(require 'anupamk/algs4-java-mode)
 (require 'anupamk/gnus)
 
 

@@ -25,7 +25,11 @@
 (custom-theme-set-faces
  'soft-stone
  '(default ((t (:background "#afaca4" :foreground "#000000"))))
+ ;;
+ ;; background: my stuff looks better
  ;; '(default ((t (:background "gray55" :foreground "#000000"))))
+
+
  '(font-lock-builtin-face ((t (:foreground "#9e0045"))))
  '(region ((t (:background "#242424" :foreground "#faf4c6"))))
  '(highlight ((t (:foreground "#c1b8a5" :background "#191919"))))
