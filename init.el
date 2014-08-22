@@ -83,7 +83,7 @@
 ;;; ----------------------------------------------------------------
 ;;; commonly used languages
 (require 'starter-kit-c)
-;; (require 'starter-kit-golang)
+(require 'starter-kit-golang)
 
 (regen-autoloads)
 
