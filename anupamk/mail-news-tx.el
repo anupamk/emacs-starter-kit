@@ -2,24 +2,20 @@
 ;; configuration for sending mail+news
 ;;
 
-;;
-;; we use msmtp for choosing appropriate smtp servers based on
-;; contents of the 'From' header.
-;; 
-
 ;; 
 ;; common configuration
 ;; 
-(setq user-full-name "anupam kapoor"		  ; some things never change ;)
-      user-mail-address "anupam.kapoor@gmail.com" ; gmail is default
-      message-confirm-send t			  ; confirm message send ?
+(setq user-full-name "anupam kapoor"	; somethings never change :)
+      message-confirm-send t		; confirm message send ?
 
-      ;; use smtp server for mail sending
-      ;; message-send-mail-function 'message-smtpmail-send-it
-
-      ;; use msmtp for sending mail
-      message-send-mail-function 'message-send-mail-with-sendmail
+      ;;
+      ;; use msmtp for sending mail, and choose appropriate smtp
+      ;; server based on contents of 'From' header
+      ;;
       sendmail-program "/usr/bin/msmtp"
+      message-sendmail-f-is-evil 't
+      message-send-mail-function 'message-send-mail-with-sendmail
+      message-sendmail-extra-arguments '("--read-envelope-from")
       
       ;; just like it sez
       message-forward-as-mime nil
@@ -28,36 +24,42 @@
 						  subject
 						(concat "FW: " subject)))
       
-      ;; post all messages to self as well...
-      gnus-parameters '((".*"
-			 (gcc-self . t)
-			 (visible  . t)))
-
-
       ;; disable password expiry
       password-cache-expiry nil
       )
 
-;;
-;; map the content of "From" header to corresponding msmtp account
-;; name.
-;; 
-(defun map-message-from-header-to-msmtp-account-name ()
-  (if (message-mail-p)
-      (save-excursion
-        (let* ((from
-                (save-restriction
-                  (message-narrow-to-headers)
-                  (message-fetch-field "from")))
-               (account
-                (cond
-                 ((string-match "akapoor@cisco.com" from) "cisco")
-		 ((string-match "anupam.kapoor@gmail.com" from) "gmail"))))
-	  (setq message-sendmail-extra-arguments (list '"-a" account))))))
+(setq gnus-parameters
+      '(
+	(".*"
+	 (gcc-self . t)
+	 (visible . t)
+	 )
 
-(setq message-sendmail-envelope-from 'header)
-(add-hook 'message-send-mail-hook 'map-message-from-header-to-msmtp-account-name)
+	;;
+	;; use akapoor@parallelwireless.com for all work related messages
+	;;
+	(".*parallel-wireless.*"
+	 (posting-style
+	  (organization "Parallel Wireless")
+	  (address "akapoor@parallelwireless.com")
+	  (body "\n\n--\nthanks\nanupam\n")
+	  (user-mail-address "akapoor@parallelwireless.com")))
 
+	;;
+	;; use anupam.kapoor@gmail.com for all non-work related messages
+	;;
+	(".*gmail.*"
+	 (posting-style
+	  (organization "self")
+	  (address "anupam.kapoor@gmail.com")
+	  (body "\n\n--\nkind regards\nanupam\n")
+	  (user-mail-address "anupam.kapoor@gmail.com")))
+
+	;;
+	;; <add more accounts here>
+	;;
+
+	))
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/mail-news-display ends here

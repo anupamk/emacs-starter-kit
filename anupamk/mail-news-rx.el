@@ -44,11 +44,17 @@
 		      (nnimap-authinfo-file "~/.authinfo")
 		      (nnimap-stream ssl)))
 
+
 ;;
-;; configure cisco news source
+;; configure parallel-wireless mail sources
 ;;
 (add-to-list 'gnus-secondary-select-methods
-	     '(nntp "news.cisco.com"))
+	     '(nnimap "parallel-wireless"
+		      (nnimap-address "imap.gmail.com")
+		      (nnimap-server-port 993)
+		      (nnimap-authinfo-file "~/.authinfo")
+		      (nnimap-stream ssl)))
+
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/mail-news-display ends here

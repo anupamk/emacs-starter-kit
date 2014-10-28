@@ -46,7 +46,7 @@
 ;; addressed to me or a group etc.
 ;;
 (defvar *anupam-mails*
-        "akapoor@cisco\\.com\\|anupam.kapoor@gmail\\.com")
+        "akapoor@cisco\\.com\\|anupam.kapoor@gmail\\.com||akpoor@parallelwireless\\.com")
 
 (defun anupam:gnus-user-format-function-r (headers)
   (let ((to (gnus-extra-header 'To headers)))
