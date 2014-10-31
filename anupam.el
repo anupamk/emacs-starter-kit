@@ -38,6 +38,7 @@
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
 (require 'anupamk/gnus)
+(require 'anupamk/gnus-bbdb)
 
 
 ;; osx specific stuff

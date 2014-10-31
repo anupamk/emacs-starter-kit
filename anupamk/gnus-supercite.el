@@ -3,15 +3,16 @@
 (require 'supercite)
 (require 'bbdb-sc)
 
-(bbdb-insinuate-sc)
+;; (bbdb-insinuate-sc)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (setq sc-preferred-header-style 5)
 (setq sc-citation-leader " ")
 
 
-
+;;
 ;; MS Outlook sends text and HTML in messages. 
 ;; The following function removes the HTML portion
+;;
 (defun mail-remove-html ()
   "Removes HTML portions from reply e-mails."
   (interactive)
@@ -163,22 +164,22 @@ provided."
 
 ;; (setq message-cite-function 'message-cite-original-without-signature)
 
-;; Remove original signature while replying
-(add-hook 
- 'sc-pre-hook
- (lambda ()
-   (save-excursion
-     (let (
-           (start (point)) 
-           (end (mark t)))
-       (goto-char end)
-       (when (and (re-search-backward "^-- *$" start t)
-                  (y-or-n-p "Strip original signature? "))
-         (forward-line -1)
-         (while (looking-at "[ \t]*$")
-           (forward-line -1))
-         (forward-line 1)
-         (delete-region (point) end))))))
+;; ;; Remove original signature while replying
+;; (add-hook 
+;;  'sc-pre-hook
+;;  (lambda ()
+;;    (save-excursion
+;;      (let (
+;;            (start (point)) 
+;;            (end (mark t)))
+;;        (goto-char end)
+;;        (when (and (re-search-backward "^-- *$" start t)
+;;                   (y-or-n-p "Strip original signature? "))
+;;          (forward-line -1)
+;;          (while (looking-at "[ \t]*$")
+;;            (forward-line -1))
+;;          (forward-line 1)
+;;          (delete-region (point) end))))))
 
 ;; message citing with supercite
 ;; Replace supercite citing to boxquote citing

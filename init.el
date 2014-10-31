@@ -53,7 +53,6 @@
                                     buffer-move
                                     boxquote
 				    autopair
-				    bbdb
 				    color-theme
 				    dired+
 				    magit

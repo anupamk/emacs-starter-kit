@@ -55,6 +55,17 @@
 	  (body "\n\n--\nkind regards\nanupam\n")
 	  (user-mail-address "anupam.kapoor@gmail.com")))
 
+
+	;;
+	;; use anupam.kapoor@gmail.com for all gmane news groups
+	;;
+	(".*gmane.*"
+	 (posting-style
+	  (organization "self")
+	  (address "anupam.kapoor@gmail.com")
+	  (body "\n\n--\nkind regards\nanupam\n")
+	  (user-mail-address "anupam.kapoor@gmail.com")))
+
 	;;
 	;; <add more accounts here>
 	;;
