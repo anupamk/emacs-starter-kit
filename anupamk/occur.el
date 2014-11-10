@@ -1,5 +1,6 @@
 ;;; ----------------------------------------------------------------
 ;;; making occur mode a bit more useful
+;;; <http://www.masteringemacs.org/article/searching-buffers-occur-mode>
 
 ;;; ----------------------------------------------------------------
 ;;; return a list of buffers which matches a major-mode

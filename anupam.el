@@ -39,6 +39,8 @@
 (require 'anupamk/multi-term)
 (require 'anupamk/gnus)
 (require 'anupamk/gnus-bbdb)
+(require 'anupamk/occur)
+(require 'anupamk/ido-mode)
 
 
 ;; osx specific stuff

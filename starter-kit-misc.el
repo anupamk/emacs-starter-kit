@@ -7,6 +7,11 @@
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
 
+;;
+;; <much better pdf rendering>
+;; https://github.com/politza/pdf-tools
+(pdf-tools-install)
+
 ;;; ----------------------------------------------------------------
 ;;; all setq's together as one big happy family...
 (setq visible-bell t
@@ -16,7 +21,6 @@
       color-theme-is-global t
       shift-select-mode nil
       mouse-yank-at-point t
-      ffap-machine-p-known 'reject
       whitespace-style '(trailing lines space-before-tab
                                   face indentation space-after-tab)
       whitespace-line-column 100

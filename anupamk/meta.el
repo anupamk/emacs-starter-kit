@@ -156,6 +156,7 @@ automatically in programming modes. Quite handy."
     (find-alternate-file (concat "/ssh:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'edit-file-as-root)
 
+
 ;;; ----------------------------------------------------------------
 ;;; anupamk/meta ends here
 (provide 'anupamk/meta)
