@@ -127,5 +127,39 @@
   ;; Work around a bug on OS X where system-name is FQDN
   (setq system-name (car (split-string system-name "\\."))))
 
+;;
+;; whitespace cleanup configuration
+;;
+(defmacro lunaryorn-after (feature &rest forms)
+  "After FEATURE is loaded, evaluate FORMS.
+
+FORMS is byte compiled.
+
+FEATURE may be a named feature or a file name, see
+`eval-after-load' for details."
+  (declare (indent 1) (debug t))
+  (when (bound-and-true-p byte-compile-current-file)
+    (if (stringp feature)
+        (load feature nil 'no-error)
+      (require feature nil 'no-error)))
+  `(with-eval-after-load ',feature ,@forms))
+
+;; A function to disable highlighting of long lines in modes
+(lunaryorn-after whitespace
+		 (defun lunaryorn-whitespace-style-no-long-lines ()
+		   "Configure `whitespace-mode' for Org.
+
+Disable the highlighting of overlong lines."
+		   (setq-local whitespace-style (-difference whitespace-style
+							     '(lines lines-tail)))
+		   (when whitespace-mode
+		     (whitespace-mode -1)
+		     (whitespace-mode 1))))
+
+(dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
+  ;; (add-hook hook #'whitespace-mode)
+  (add-hook hook #'whitespace-cleanup-mode))
+
+
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here
