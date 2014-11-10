@@ -33,17 +33,17 @@
 (setq custom-file (concat dotfiles-dir "custom.el"))
 
 (require 'package)
-(dolist (source '(("marmalade"	. "http://marmalade-repo.org/packages/")
-                  ("elpa"	. "http://tromey.com/elpa/")
+(dolist (source '(
 		  ("melpa"	. "http://melpa.milkbox.net/packages/")
+		  ;; add more sources here...
 		  ))
 
   (add-to-list 'package-archives source t))
 
-(package-initialize)
+;; Please don't load outdated byte code
+(setq load-prefer-newer t)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(package-initialize)
 
 (require 'starter-kit-elpa)
 
@@ -55,16 +55,44 @@
 				    autopair
 				    color-theme
 				    dired+
-				    magit
 				    multi-term
 				    gnus
+
+				    ;; navigation-stuff
+				    ido-ubiquitous                 ; use ido everywhere
+				    ido-vertical-mode		   ; show ido vertically
+
+				    ;; editing helpers
+				    whitespace-cleanup-mode        ; cleanup whitespace on save
+
+				    ;; general version-control
+				    diff-hl                        ; highlight VCS diffs in the fringe
+
+				    ;; git+gist integration
+				    magit			   ; git frontend
+				    git-commit-mode		   ; git commit message mode
+				    gitconfig-mode		   ; git configuration mode
+				    gitignore-mode		   ; .gitignore mode
+				    gitattributes-mode		   ; git attributes mode
+				    git-rebase-mode		   ; mode for git rebase -i
+				    git-timemachine		   ; go back in (git) time
+
                                     ;; add more packages here...
                                     )
   "A list of packages to ensure are installed at launch.")
 
-(dolist (pkg anupamk-required-packages)
-  (when (not (package-installed-p pkg))
-    (package-install pkg)))
+(defun anupamk-ensure-required-packages()
+  "ensure required packages are installed"
+  (interactive)
+
+  (unless package-archive-contents
+    (package-refresh-contents))
+
+  (dolist (package anupamk-required-packages)
+    (unless (package-installed-p package)
+      (package-install package))))
+
+(anupamk-ensure-required-packages)
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
