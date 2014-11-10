@@ -1,0 +1,42 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/anupam/source-code/golang/src/github.com/" . "anupamk/")
+ ("/home/anupam/source-code/golang/src/" . "github.com/")
+ ("/home/anupam/source-code/golang/" . "src/")
+ ("/home/anupam/source-code/" . "golang/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/anupam/source-code/golang/src/github.com/anupamk/common-utilz/"
+ "/home/anupam/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "LICENSE"
+ "build-common-utilz.sh"
+ "nice-quotes.text"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/anupam/source-code/golang/src/github.com/anupamk/common-utilz/" (21556 33900 410010 416000) "graph/" "../" "LICENSE" "traversal/" "run-tests-and-benchmark.sh" "slice_utils/" "line_parser/" ".git/" "./" "stack/" ".gitignore" "queue/" "README.md" "build-common-utilz.sh")
+
+ ("/home/anupam/source-code/golang/src/github.com/anupamk/" (21556 33900 426677 84000) "../" "old-common-utilz/" "./" "common-utilz/")
+
+ ("/home/anupam/source-code/golang/src/github.com/" (21556 33886 300010 259000) "../" "./" "anupamk/")
+
+ ("/home/anupam/source-code/golang/src/" (21556 33886 296676 926000) "../" "github.com/" "./")
+
+ ("/home/anupam/source-code/golang/" (21556 33903 576677 119000) "../" "tmp/" "quick-hacks/" "src/" "pkg/" "./")
+
+ ("/home/anupam/source-code/" (21600 13946 740065 694000) "../" "erlang/" "pw-devel/" "dwarves/" "cower/" "confd-5.2.1/" "confd-5.0/" "python/" "for-fun/" "c++/" "./" "lua/" "edx/" "golang/" "scheme/" "shell-scripts/" "kernel/" "emacs-calfw/" "c/" "resume/" "fvwm-settings/" "elisp/" "discrete-optimization/")
+
+ ("/home/anupam/" (21600 14437 413410 924000) "../" ".zshrc" ".thumbnails/" "Calibre Library/" "tmp/" ".emacs.d/" "mounted-volumes/" ".gtkrc-2.0" ".local/" ".fvwm2rc" ".gnome2/" ".zcompdump" ".python_history" ".revive.el" ".esd_auth" ".vnc/" "media/" ".subversion/" "settings/" ".Skype/" ".bash_profile" ".recentf" ".bash_logout" ".nightingale/" ".zshenv" ".kde4/" ".gnupg/" "usr/" ".xinitrc" "Dropbox/" "source-code/" "nice-quotes.text" ".xchat2/" ".zsh_history" ".bashrc" "Downloads/" ".ICEauthority" ".cache/" ".gnome-desktop/" "Desktop/" "./" ".Xauthority" ".macromedia/" ".gstreamer-0.10/" ".abook/" ".available" ".viminfo" ".ssh/" ".lesshst" ".face.icon" ".adobe/" ".gitconfig" ".xbindkeysrc" ".keychain/" "VirtualBox VMs/" ".mplayer/" ".racket/" "muzak/" ".mozilla/" ".fvwm/" ".dropbox/" ".dbus/" ".msmtprc" ".authinfo.gpg" ".qmmp/" ".gmrun_history" ".xscreensaver" "Documents/" ".config/" ".pki/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
