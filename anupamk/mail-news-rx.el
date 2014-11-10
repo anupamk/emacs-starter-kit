@@ -42,6 +42,7 @@
 		      (nnimap-address "imap.gmail.com")
 		      (nnimap-server-port 993)
 		      (nnimap-authinfo-file "~/.authinfo")
+		      (nnir-search-engine imap)
 		      (nnimap-stream ssl)))
 
 
@@ -53,6 +54,7 @@
 		      (nnimap-address "imap.gmail.com")
 		      (nnimap-server-port 993)
 		      (nnimap-authinfo-file "~/.authinfo")
+		      (nnir-search-engine imap)
 		      (nnimap-stream ssl)))
 
 
