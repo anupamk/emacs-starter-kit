@@ -40,7 +40,8 @@
 (require 'anupamk/gnus)
 (require 'anupamk/gnus-bbdb)
 (require 'anupamk/occur)
-(require 'anupamk/ido-mode)
+;;(require 'anupamk/ido-mode)
+(require 'anupamk/helm)
 
 
 ;; osx specific stuff
