@@ -55,8 +55,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
- '(bold ((t (:slant italic :height 1.1))))
+ '(default ((t (:family "Droid Sans Mono Slashed" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
+ '(bold ((t (:weight normal))))
  '(button ((t (:foreground "midnight" :underline t))))
  '(comint-highlight-prompt ((t nil)))
  '(compilation-error ((t (:underline "red3" :weight normal))))
@@ -78,7 +78,8 @@
  '(font-lock-keyword-face ((t (:foreground "#490026" :weight normal))))
  '(font-lock-negation-char-face ((t (:foreground "black"))))
  '(font-lock-preprocessor-face ((t (:foreground "blue4"))))
- '(gnus-cite-5 ((t (:foreground "grey40"))))
+ '(gnus-group-mail-3 ((t (:foreground "dark red"))))
+ '(gnus-group-mail-3-empty ((t (:foreground "gray30"))))
  '(gnus-group-news-3 ((t (:weight normal))))
  '(lazy-highlight ((t (:background "gray55"))))
  '(sh-quoted-exec ((t (:foreground "#660000"))) t)

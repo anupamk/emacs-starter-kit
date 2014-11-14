@@ -30,6 +30,15 @@
       ;; message-subject handling
       gnus-thread-hide-subtree t
 
+      ;; Fixed width fonts in most countries have characters of the
+      ;; same width. Some countries, however, use Latin characters
+      ;; mixed with wider characters—most notable East Asian
+      ;; countries. The problem is that when formatting, Gnus assumes
+      ;; that if a string is 10 characters wide, it'll be 10 Latin
+      ;; characters wide on the screen. In these countries, that's not
+      ;; true.
+      gnus-use-correct-string-widths t
+
       ;; articles with different subjects from their parents start
       ;; different threadz.
       gnus-thread-ignore-subject nil
@@ -39,27 +48,6 @@
       gnus-thread-sort-functions '(gnus-thread-sort-by-date)
       
       )
-
-
-;;
-;; customized mail-markers a la gmail style for highlighting mails
-;; addressed to me or a group etc.
-;;
-(defvar *anupam-mails*
-        "akapoor@cisco\\.com\\|anupam.kapoor@gmail\\.com||akpoor@parallelwireless\\.com")
-
-(defun anupam:gnus-user-format-function-r (headers)
-  (let ((to (gnus-extra-header 'To headers)))
-    (if (string-match *anupam-mails* to)
-        (if (string-match "," to) "~" "»")
-        (if (or (string-match *anupam-mails*
-                              (gnus-extra-header 'Cc headers))
-                (string-match *anupam-mails*
-                              (gnus-extra-header 'BCc headers)))
-            "~"
-            " "))))
-
-(defalias 'gnus-user-format-function-r 'anupam:gnus-user-format-function-r)
 
 ;; customized group-format
 (defun gnus-user-format-function-G (arg) 
@@ -87,112 +75,42 @@
 
 (anupam:display-group-buffer)
 
+(setq gnus-user-date-format-alist '((t . "%d.%b.%Y")))
 
+;; make all faces default
+(setq gnus-face-1 'default
+      gnus-face-2 'default
+      gnus-face-3 'default
+      gnus-face-4 'default
+      gnus-face-5 'default
+      gnus-face-6 'default
+      )
 
+(setq gnus-summary-line-format
+      "%{%U%R%z┊ %}%{%&user-date; %}%{┊ %} %{%~(max-right 50)~(pad-right 30)n%}%-60=%{┊ %}%(%{%B%}%-60,60s%)\n")
+;;
+;; if you want to enter unicode characters, do this
+;;    C-x 8 <RETURN> <UNICODE-CHARACTER-NAME>
+;; UNICODE-CHARACTER-NAME is obatained from "http://en.wiktionary.org/wiki/Appendix:Unicode/Box_Drawing"
+;; for example, a 'RIGHTWARDS ARROW' gives us '→'
+;;
+(setq-default gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
+	      gnus-thread-sort-functions '(gnus-thread-sort-by-date)
 
-(defun gnus-user-format-function-@ (header)
-  "Display @ for message with attachment in summary line."
-  (let ((case-fold-search t)
-	(ctype (or (cdr (assq 'Content-Type (mail-header-extra header)))
-		   "text/plain"))
-	indicator)
-    (when (string-match "^multipart/mixed" ctype)
-      (setq indicator "@"))
-    (if indicator
-	indicator
-      " ")))
-
-(defalias 'gnus-user-format-function-score 'rs-gnus-summary-line-score)
-
-(defun rs-gnus-summary-line-score (head)
-  "Return pretty-printed version of article score.
-
-See (info \"(gnus)Group Line Specification\")."
-  (let ((c (gnus-summary-article-score (mail-header-number head))))
-    ;; (gnus-message 9 "c=%s chars in article %s" c (mail-header-number head))
-    (cond ((< c -1000)     "vv")
-          ((< c  -100)     " v")
-          ((< c   -10)     "--")
-          ((< c     0)     " -")
-          ((= c     0)     "  ")
-          ((< c    10)     " +")
-          ((< c   100)     "++")
-          ((< c  1000)     " ^")
-          (t               "^^"))))
-
-;;; threading
-(setq gnus-face-9 'font-lock-warning-face)
-(setq gnus-face-10 'shadow)
-
-(defun sdl-gnus-summary-line-format-ascii nil
-  (interactive)
-  (setq gnus-summary-line-format
-        (concat
-         "%0{%U%R%z%}" "%10{|%}" "%1{%d%}" "%10{|%}"
-         "%9{%u&@;%}" "%(%-15,15f %)" "%10{|%}" "%4k" "%10{|%}"
-         "%2u&score;" "%10{|%}" "%10{%B%}" "%s\n"))
-  (setq
-   gnus-sum-thread-tree-single-indent   "o "
-   gnus-sum-thread-tree-false-root      "x "
-   gnus-sum-thread-tree-root            "* "
-   gnus-sum-thread-tree-vertical        "| "
-   gnus-sum-thread-tree-leaf-with-other "|-> "
-   gnus-sum-thread-tree-single-leaf     "+-> " ;; "\\" is _one_ char
-   gnus-sum-thread-tree-indent          "  ")
-  (gnus-message 5 "Using ascii tree layout."))
-
-(defun sdl-gnus-summary-line-format-unicode nil
-  (interactive)
-  (setq gnus-summary-line-format (concat
-				  "%0{%U%R%z%}" "%10{│%}" "%1{%d%}" "%10{│%}"
-				  "%9{%}" "%(%-15,15f %)" "%10{│%}" "%4k" "%10{│%}"
-				  "%2u&score;" "%10{│%}" "%10{%B%}" "%s\n"))
-  (setq gnus-sum-thread-tree-single-indent   "■ "
-	gnus-sum-thread-tree-false-root      "  "
-	gnus-sum-thread-tree-root            "┌ "
-	gnus-sum-thread-tree-vertical        "│"
-	gnus-sum-thread-tree-leaf-with-other "├─>"
-	gnus-sum-thread-tree-single-leaf     "└─>"
-	gnus-sum-thread-tree-indent          "  ")
-  (gnus-message 5 "Using tree layout with unicode chars."))
-
-(sdl-gnus-summary-line-format-unicode)
-
+	      ;; threading control
+	      gnus-sum-thread-tree-indent ""
+	      gnus-sum-thread-tree-root ""
+	      gnus-sum-thread-tree-false-root ""
+	      gnus-sum-thread-tree-single-indent ""
+	      gnus-sum-thread-tree-vertical        "┊"
+	      gnus-sum-thread-tree-leaf-with-other "├─▶ "
+	      gnus-sum-thread-tree-single-leaf     "└─▶ "
+	      )
 
 ;; customized summary buffer
 (defun anupam:display-summary-buffer  ()
   "display much nicer (relatively speaking) summary buffer"
   (interactive)
-
-  ;;
-  ;; if you want to enter unicode characters, do this
-  ;;    C-x 8 <RETURN> <UNICODE-CHARACTER-NAME>
-  ;; UNICODE-CHARACTER-NAME is obatained from "http://en.wiktionary.org/wiki/Appendix:Unicode/Box_Drawing■"
-  ;; for example, a 'RIGHTWARDS ARROW' gives us '→'
-  ;;
-
-  ;; ;; summary buffer format
-  ;; (setq gnus-summary-same-subject ""
-  ;;       gnus-sum-thread-tree-root ""
-  ;;       gnus-sum-thread-tree-single-indent ""
-  ;;       gnus-sum-thread-tree-leaf-with-other "+-> "
-  ;;       gnus-sum-thread-tree-vertical "|"
-  ;;       gnus-sum-thread-tree-single-leaf "`-> ")
-
-  ;; ;; summary face format
-  ;; (setq gnus-face-1 'default
-  ;;       gnus-face-2 'default
-  ;;       gnus-face-3 'default
-  ;;       gnus-face-4 'default
-  ;;       gnus-face-5 'default
-  ;;       gnus-face-6 'default
-  ;;       gnus-summary-line-format (concat "%*%5{%U%R%}"
-  ;; 					 "%4{┊%}"
-  ;;                                        "%2{%d%}"
-  ;;                                        "%4{┊%}"
-  ;;                                        "%2{ %}%-24,24n"
-  ;;                                        "%4{┊%}"
-  ;;                                        "%2{ %}%3{%B%}%1{%s%}\n"))
 
   ;; buffer configuration
   (setq gnus-use-trees t
