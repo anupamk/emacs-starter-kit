@@ -5,7 +5,7 @@
 ;;
 ;; initialize stuff
 ;;
-(bbdb-initialize 'gnus 'message 'sc)
+(bbdb-initialize 'gnus 'message)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 
 ;;
