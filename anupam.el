@@ -37,11 +37,12 @@
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
-(require 'anupamk/gnus)
-(require 'anupamk/gnus-bbdb)
 (require 'anupamk/occur)
-;;(require 'anupamk/ido-mode)
-(require 'anupamk/helm)
+(require 'anupamk/ido-mode)
+(require 'anupamk/mu4e-config)
+;; (require 'anupamk/gnus)
+;; (require 'anupamk/gnus-bbdb)
+;; (require 'anupamk/helm)
 
 
 ;; osx specific stuff
