@@ -7,11 +7,6 @@
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
 
-;;
-;; <much better pdf rendering>
-;; https://github.com/politza/pdf-tools
-(pdf-tools-install)
-
 ;;; ----------------------------------------------------------------
 ;;; all setq's together as one big happy family...
 (setq visible-bell t
@@ -56,9 +51,6 @@
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
-
-;; Save a list of recent files visited.
-(recentf-mode 1)
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
