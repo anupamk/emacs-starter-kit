@@ -17,7 +17,7 @@
 	    (unless (file-exists-p "Makefile")
 	      (set (make-local-variable 'compile-command)
 		   (let ((file (file-name-nondirectory buffer-file-name)))
-		     (concat "gcc -g -O2 -Wall -o obj/" (file-name-sans-extension file)
+		     (concat "gcc -std=c99 -g -O2 -Wall -o obj/" (file-name-sans-extension file)
 			     " " file))))))
 
 ;;; ----------------------------------------------------------------
