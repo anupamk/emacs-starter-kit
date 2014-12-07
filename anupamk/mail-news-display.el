@@ -87,7 +87,7 @@
       )
 
 (setq gnus-summary-line-format
-      "%{%U%R%z┊ %}%{%&user-date; %}%{┊ %} %{%~(max-right 50)~(pad-right 30)n%}%-60=%{┊ %}%(%{%B%}%-60,60s%)\n")
+      "%{%U%R%z┊ %}%{%&user-date; %}%{┊ %} %{%~(max-right 50)~(pad-right 30)n%}%-60=%{┊ %}%(%{%B%}%-40,40s%)\n")
 ;;
 ;; if you want to enter unicode characters, do this
 ;;    C-x 8 <RETURN> <UNICODE-CHARACTER-NAME>

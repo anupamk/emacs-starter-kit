@@ -34,28 +34,28 @@
 (setq gnus-select-method
       '(nntp "news.gmane.org"))
 
-;; 
-;; configure gmail source
-;;
-(add-to-list 'gnus-secondary-select-methods
-	     '(nnimap "gmail"
-		      (nnimap-address "imap.gmail.com")
-		      (nnimap-server-port 993)
-		      (nnimap-authinfo-file "~/.authinfo")
-		      (nnir-search-engine imap)
-		      (nnimap-stream ssl)))
+;; ;; 
+;; ;; configure gmail source
+;; ;;
+;; (add-to-list 'gnus-secondary-select-methods
+;; 	     '(nnimap "gmail"
+;; 		      (nnimap-address "imap.gmail.com")
+;; 		      (nnimap-server-port 993)
+;; 		      (nnimap-authinfo-file "~/.authinfo")
+;; 		      (nnir-search-engine imap)
+;; 		      (nnimap-stream ssl)))
 
 
-;;
-;; configure parallel-wireless mail sources
-;;
-(add-to-list 'gnus-secondary-select-methods
-	     '(nnimap "parallel-wireless"
-		      (nnimap-address "imap.gmail.com")
-		      (nnimap-server-port 993)
-		      (nnimap-authinfo-file "~/.authinfo")
-		      (nnir-search-engine imap)
-		      (nnimap-stream ssl)))
+;; ;;
+;; ;; configure parallel-wireless mail sources
+;; ;;
+;; (add-to-list 'gnus-secondary-select-methods
+;; 	     '(nnimap "parallel-wireless"
+;; 		      (nnimap-address "imap.gmail.com")
+;; 		      (nnimap-server-port 993)
+;; 		      (nnimap-authinfo-file "~/.authinfo")
+;; 		      (nnir-search-engine imap)
+;; 		      (nnimap-stream ssl)))
 
 
 ;;; ----------------------------------------------------------------

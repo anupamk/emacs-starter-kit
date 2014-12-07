@@ -45,8 +45,6 @@
 
 (package-initialize)
 
-(require 'starter-kit-elpa)
-
 ;;; --------------------------------------------------------------------------------
 ;;; ensure required packages are installed at launch
 (defvar anupamk-required-packages '(ctypes

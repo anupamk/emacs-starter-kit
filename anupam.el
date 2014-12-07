@@ -40,10 +40,10 @@
 (require 'anupamk/occur)
 (require 'anupamk/ido-mode)
 (require 'anupamk/mu4e-config)
-;; (require 'anupamk/gnus)
-;; (require 'anupamk/gnus-bbdb)
-;; (require 'anupamk/helm)
-
+(require 'anupamk/gnus)
+(require 'anupamk/gnus-bbdb)
+(require 'anupamk/magit-config)
+(require 'anupamk/diff-hl-mode-config)
 
 ;; osx specific stuff
 (defun system-type-is-darwin()

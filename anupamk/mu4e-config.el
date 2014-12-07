@@ -13,7 +13,7 @@
 (setq mu4e-debug t 			; leave it on-for-now
 
       ;; synchronize with offlineimap, every 5 minutes
-      mu4e-get-mail-command "offlineimap -u Noninteractive.Basic -l ~/.offlineimap/logs/log-`date +%b-%Y`"
+      mu4e-get-mail-command "offlineimap -u basic -l ~/.offlineimap/logs/log-`date +%b-%Y`"
       mu4e-update-interval 300
 
       ;; iso(ish) date-time format
@@ -38,10 +38,15 @@
       mu4e-maildir       "/home/anupam/Mail"
       mu4e-sent-folder   "/akapoor@parallelwireless.com/Sent Mail"
       mu4e-drafts-folder "/akapoor@parallelwireless.com/Drafts"
-      mu4e-trash-folder  "/akapoor@parallelwireless.com/Trash"
+      mu4e-trash-folder (lambda (msg)
+			  (if (and msg ;; msg may be nil
+				   (mu4e-message-contact-field-matches msg :to ".*@parallelwireless.com"))
+			      "/akapoor@parallelwireless.com/Trash"
+			    "/anupam.kapoor@gmail.com/[Gmail].Trash"))
 
       mu4e-maildir-shortcuts '(
 			       ("/akapoor@parallelwireless.com/All Mail" . ?w)
+			       ("/anupam.kapoor@gmail.com/INBOX" . ?p)
 			       )
 
       ;; sending mails
@@ -104,7 +109,11 @@
   (setq user-mail-address      "anupam.kapoor@gmail.com"
 	user-full-name         "Anupam Kapoor"
 	mu4e-compose-signature "\n---\nkind regards\nanupam"
+
 	;; add appropriate maildirs here
+	mu4e-sent-folder   "/anupam.kapoor@gmail.com/[Gmail].Sent Mail"
+	mu4e-drafts-folder "/anupam.kapoor@gmail.com/[Gmail].Drafts"
+	mu4e-trash-folder  "/anupam.kapoor@gmail.com/[Gmail].Trash"
 	))
 
 (defun anupamk:mu4e-parallel-wireless()
@@ -121,7 +130,7 @@
 
 
 ;; when you reply to a message, use the identity that the mail was sent to
-(defun cpb-mu4e-is-message-to (msg rx)
+(defun check-rx-message-fields:to-cc-bcc (msg rx)
   "Check if to, cc or bcc field in MSG has any address in RX."
   (or (mu4e-message-contact-field-matches msg :to rx)
       (mu4e-message-contact-field-matches msg :cc rx)
@@ -133,10 +142,10 @@
             "Set current identity based on to, cc, bcc of original."
             (let ((msg mu4e-compose-parent-message)) ;; msg is shorter...
               (if msg
-                  (cond ((cpb-mu4e-is-message-to msg (list "akapoor@parallelwireless.com"))
+                  (cond ((check-rx-message-fields:to-cc-bcc msg (list "akapoor@parallelwireless.com"))
 			 (anupamk:mu4e-parallel-wireless))
 
-			((cpb-mu4e-is-message-to msg (list "anupam.kapoor@gmail.com"))
+			((check-rx-message-fields:to-cc-bcc msg (list "anupam.kapoor@gmail.com"))
 			 (anupamk:mu4e-personal))
 
 			)))))
