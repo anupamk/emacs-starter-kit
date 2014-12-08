@@ -1,9 +1,14 @@
 ;;; --------------------------------------------------------------------------------
 ;;; my personal settings
 
+;; add ~/.emacs.d to the load-path
+(add-to-list 'load-path "~/.emacs.d/anupamk")
+
 ;;; --------------------------------------------------------------------------------
 ;;; generic stuff
 (require 'anupamk/meta)
+
+(unicode-fonts-setup)
 
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
@@ -17,14 +22,9 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
 	default-frame-alist '(
-			      ;; no fringes
-			      (left-fringe  . 0)
-			      (right-fringe . 0)
-			      (vertical-scroll-bars . nil)
-
 			      ;; basic stuff is same for all frames
 			      (cursor-color . "dark red")
-			      
+
 			      ;; add more frame-specific stuff here
 			      )
 	))
@@ -44,14 +44,4 @@
 (require 'anupamk/gnus-bbdb)
 (require 'anupamk/magit-config)
 (require 'anupamk/diff-hl-mode-config)
-
-;; osx specific stuff
-(defun system-type-is-darwin()
-  (interactive)
-  (string-equal system-type "darwin"))
-
-(if (system-type-is-darwin)
-	(progn
-	  (require 'anupamk/osx-emacs))
-	)
 
