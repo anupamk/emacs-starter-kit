@@ -9,7 +9,6 @@
 (unless (display-graphic-p)
   (diff-hl-margin-mode))
 
-
 ;;
 ;; anupamk/diff-hl-mode-config ends here
 (provide 'anupamk/diff-hl-mode-config)

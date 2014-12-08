@@ -19,7 +19,7 @@
    (quote
     ("/Users/anupam/.emacs.d/themes/" t custom-theme-directory)))
  '(font-use-system-font t)
- '(fringe-mode 0 nil (fringe))
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(gnus-directory "~/.emacs.d/gnus/News/")
  '(gnus-startup-file "~/.emacs.d/gnus/.newsrc")
  '(gnus-startup-hook
@@ -55,7 +55,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Droid Sans Mono Slashed" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(bold ((t (:weight normal))))
  '(button ((t (:foreground "midnight" :underline t))))
  '(comint-highlight-prompt ((t nil)))
@@ -71,12 +70,7 @@
  '(diff-removed ((t (:inherit diff-changed :foreground "red4"))))
  '(flyspell-duplicate ((t nil)))
  '(flyspell-incorrect ((t (:weight normal))))
- '(font-lock-builtin-face ((t (:foreground "navy"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "gray40"))))
- '(font-lock-comment-face ((t (:foreground "gray40"))))
- '(font-lock-function-name-face ((t (:foreground "#340557" :weight normal))))
- '(font-lock-keyword-face ((t (:foreground "#490026" :weight normal))))
- '(font-lock-negation-char-face ((t (:foreground "black"))))
  '(font-lock-preprocessor-face ((t (:foreground "blue4"))))
  '(gnus-cite-5 ((t (:foreground "gray30"))))
  '(gnus-group-mail-3 ((t (:foreground "dark red"))))
@@ -85,6 +79,5 @@
  '(lazy-highlight ((t (:background "gray55"))))
  '(message-cited-text ((t (:foreground "gray20"))))
  '(sh-quoted-exec ((t (:foreground "#660000"))) t)
- '(show-paren-match ((t (:background "#9f9c94"))))
  '(variable-pitch ((t nil))))
 
