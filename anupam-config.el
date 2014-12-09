@@ -57,3 +57,4 @@
 (require 'anupamk/rainbow)
 (require 'anupamk/file-handling-config)
 (require 'anupamk/python-mode-config)
+(require 'anupamk/c-mode-config)

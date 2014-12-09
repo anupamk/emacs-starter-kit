@@ -1,8 +1,4 @@
-;;; ----------------------------------------------------------------
-;;; starter-kit for C-mode : making defaults saner
-
 (require 'compile)
-(require 'ctypes)
 
 (setq c-hungry-delete-key t
       )
@@ -44,15 +40,6 @@
             ))
 
 
-;;; ----------------------------------------------------------------
-;;; hide/show code blocks
-(add-hook 'c-mode-hook 'hs-minor-mode)
-(define-key global-map "\C-c\}" 'hs-hide-all)
-(define-key global-map "\C-c\{" 'hs-show-all)
-(define-key global-map "\C-c\]" 'hs-hide-block)
-(define-key global-map "\C-c\[" 'hs-show-block)
-
-
-;;; ----------------------------------------------------------------
+
 ;;; starter-kit-c ends here
-(provide 'starter-kit-c)
+(provide 'anupamk/c-mode-config)
