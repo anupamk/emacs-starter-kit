@@ -44,6 +44,7 @@
 
     ;; navigation
     buffer-move
+    flx-ido				; powerful flex-matching for ido
     ido-ubiquitous			; use ido everywhere
     ido-vertical-mode			; show ido vertically
 

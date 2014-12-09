@@ -1,7 +1,6 @@
 ;;; ----------------------------------------------------------------
 ;;; all requires in one place
 (require 'paren)                        ; parenthesis highligt+match
-(require 'autopair)                     ; automatically pair parenthesis
 (require 'buffer-move)                  ; move buffers around
 (require 'xcscope)                      ; emacs cscope interface
 (require 'boxquote)                     ; clean quoting
