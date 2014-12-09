@@ -153,7 +153,7 @@
 ;; fancy announce mechanism for email
 (add-hook 'mu4e-index-updated-hook
 	  (lambda ()
-	    (shell-command (concat "/home/anupam/.emacs.d/anupamk/announce-new-mail "
+	    (shell-command (concat "/home/anupam/.emacs.d/lisp/anupamk/announce-new-mail "
 				   (number-to-string mu4e-update-interval)))))
 
 
