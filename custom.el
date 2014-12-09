@@ -45,6 +45,7 @@
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(mouse-wheel-mode t)
  '(password-cache-expiry nil)
+ '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-stop-list (number-sequence 8 200 8))
  '(tool-bar-mode nil)
