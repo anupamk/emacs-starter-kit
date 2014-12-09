@@ -47,7 +47,7 @@
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
 (require 'anupamk/occur)
-(require 'anupamk/ido-mode)
+(require 'anupamk/minibuffer-config)
 (require 'anupamk/mu4e-config)
 (require 'anupamk/gnus)
 (require 'anupamk/gnus-bbdb)
