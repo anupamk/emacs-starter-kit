@@ -62,5 +62,7 @@
 (require 'anupamk/completion-config)
 (require 'anupamk/rainbow)
 (require 'anupamk/file-handling-config)
+(require 'anupamk/prog-mode-config)
 (require 'anupamk/python-mode-config)
 (require 'anupamk/c-mode-config)
+(require 'anupamk/spell-checking-config)
