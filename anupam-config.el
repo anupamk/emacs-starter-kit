@@ -56,3 +56,4 @@
 (require 'anupamk/completion-config)
 (require 'anupamk/rainbow)
 (require 'anupamk/file-handling-config)
+(require 'anupamk/python-mode-config)
