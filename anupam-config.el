@@ -26,6 +26,12 @@
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
+
+;; volatile highlights
+(require 'volatile-highlights)          ; Doesn't autoload :|
+(volatile-highlights-mode t)
+(diminish 'volatile-highlights-mode)
+
 
 ;; setup custom stuff here so that my settings override theme specific stuff
 (when window-system

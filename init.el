@@ -23,12 +23,15 @@
     boxquote				; pretty quoting in mail/news
     multi-term				; terminal
     page-break-lines                    ; page breaks
+    volatile-highlights			; certain editing operations
 
     ;; utilities
     google-this				; google from emacs
     paradox				; better package menu
     paredit				; balanced parenthesis editing
+    autopair				;
     xcscope				; emacs cscope interface
+    revive				; emacs-session save/restore
 
     ;; file-handling
     ignoramus				; ignore uninteresting files
