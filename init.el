@@ -30,6 +30,10 @@
     paredit				; balanced parenthesis editing
     xcscope				; emacs cscope interface
 
+    ;; file-handling
+    ignoramus				; ignore uninteresting files
+    launch				; Launch files and directories using the os associated applications
+
     ;; fonts and stuff
     unicode-fonts			; unicode font setup
     diminish				; keep mode-line clean

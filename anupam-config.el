@@ -55,4 +55,4 @@
 (require 'anupamk/diff-hl-mode-config)
 (require 'anupamk/completion-config)
 (require 'anupamk/rainbow)
-
+(require 'anupamk/file-handling-config)
