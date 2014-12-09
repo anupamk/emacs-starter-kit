@@ -24,7 +24,8 @@
              (concat "#%" (buffer-name) "#")))))
 
 
-;;; ----------------------------------------------------------------
+
+
 ;;; Put backup files (ie foo~) in one place too. (The
 ;;; backup-directory-alist list contains regexp=>directory mappings;
 ;;; filenames matching a regexp are backed up in the corresponding
@@ -33,12 +34,7 @@
 (setq backup-directory-alist (list (cons "." backup-dir)))
 
 
-;;; ----------------------------------------------------------------
-;;; in lieu of yes/no prompts
-(fset 'yes-or-no-p 'y-or-n-p)
-
-
-;;; ----------------------------------------------------------------
+
 ;;; some more sane defaults
 (setq search-highlight t                ; highlight incremental searches
       default-line-spacing 2
@@ -52,18 +48,26 @@
 (setq-default comment-column 60)
 (setq-default comment-fill-column 200)
 
-;;; ----------------------------------------------------------------
+;; Make Tab complete if the line is indented
+(setq tab-always-indent 'complete)
+
 ;;; reformat man-pages to 'MANWIDTH' columns only.
 (setenv "MANWIDTH" "72")
 
 
-;;; ----------------------------------------------------------------
+
 ;;; parenthesis highlighting+match
-(setq show-paren-style 'expression)     ; show entire expression
+(setq show-paren-style 'expression	; show entire expression
+
+      ;; show paren more aggressively
+      show-paren-when-point-inside-paren t
+      show-paren-when-point-in-periphery t)
+
 (show-paren-mode t)
 
 
-;;; ----------------------------------------------------------------
+
+
 ;;; vi(m) style parenthesis matching
 (defun vi-match-paren (arg)
   "Go to the matching paren if on a paren; otherwise insert %."
@@ -82,18 +86,10 @@
   (byte-recompile-directory "~/.emacs.d" 0))
 
 
-;;; ----------------------------------------------------------------
-;;; autopair-mode for opening paired characters e.g. ( ), { }, [ ]
-;;; etc. the second half is added automatically, and the cursor placed
-;;; in the middle.
-(autopair-global-mode)
-(put 'autopair-insert-opening 'delete-selection t)
-(put 'autopair-skip-close-maybe 'delete-selection t)
-(put 'autopair-insert-or-skip-quote 'delete-selection t)
-(put 'autopair-extra-insert-opening 'delete-selection t)
-(put 'autopair-extra-skip-close-maybe 'delete-selection t)
-(put 'autopair-backspace 'delete-selection 'supersede)
-(put 'autopair-newline 'delete-selection t)
+
+;; Electric pairing and code layout
+(electric-pair-mode)
+(electric-layout-mode)
 
 
 ;;; ----------------------------------------------------------------
@@ -121,19 +117,6 @@ automatically in programming modes. Quite handy."
 
 
 ;;; ----------------------------------------------------------------
-;;; google selected region from within...
-(defun google-it ()
-  "Google the selected region if any, display a query prompt otherwise."
-  (interactive)
-  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-		      (url-hexify-string (if mark-active
-					     (buffer-substring (region-beginning) (region-end))
-					   (read-string "Google: "))))
-	      )
-  )					; google-it(...)
-(global-set-key (kbd "C-c G") 'google-it)
-
-;;; ----------------------------------------------------------------
 ;;; enable CamelCase aware editing for all programming modes
 (add-hook 'prog-mode-hook 'subword-mode)
 
@@ -156,6 +139,29 @@ automatically in programming modes. Quite handy."
     (find-alternate-file (concat "/ssh:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'edit-file-as-root)
 
+
+
+;; nice page-breaks
+(global-page-break-lines-mode)
+(diminish 'page-break-lines-mode)
+
+(google-this-mode)
+(diminish 'google-this-mode)
+
+
+;; insert-current-date
+(defun anupamk:insert-current-date (iso)
+  "Insert the current date at point.
+
+When ISO is non-nil, insert the date in ISO 8601 format.
+Otherwise insert the date as Mar 04, 2014."
+  (interactive "P")
+  (insert (format-time-string (if iso "%F" "%b %d, %Y"))))
+
+
+;; an emacs-server for emacs-client
+(require 'server)
+(unless (server-running-p) (server-start))
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/meta ends here

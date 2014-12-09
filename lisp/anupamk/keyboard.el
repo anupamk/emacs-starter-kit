@@ -52,15 +52,13 @@
 (global-unset-key [(control x)(control c)])
 (global-set-key [(control x)(control c)] 'no-way)
 
-;;; ----------------------------------------------------------------
-;;; darwin specific stuff
-(when (eq system-type 'darwin)
-  (setq mac-allow-anti-aliasing nil	; antialiased fonts are waaay better on osx
-	mac-option-key-is-meta nil	; use 'command-key' as meta
-	mac-command-key-is-meta t
-	mac-command-modifier 'meta
-	mac-option-modifier 'none
-	))
+;; Find definition sources fast
+(find-function-setup-keys)
+
+;; improve standard bindings
+(global-set-key [remap dabbrev-expand] #'hippie-expand)
+(global-set-key [remap isearch-forward] #'isearch-forward-regexp)
+(global-set-key [remap isearch-backward] #'isearch-backward-regexp)
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/keyboard ends here

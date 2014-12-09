@@ -22,8 +22,8 @@
     ;; misc
     boxquote				; pretty quoting in mail/news
     multi-term				; terminal
-    autopair				; automatically pair parenthesis
-    
+    page-break-lines                    ; page breaks
+
     ;; utilities
     google-this				; google from emacs
     paradox				; better package menu
@@ -32,7 +32,8 @@
 
     ;; fonts and stuff
     unicode-fonts			; unicode font setup
-    
+    diminish				; keep mode-line clean
+
     ;; completion
     company				; auto completion
     company-math			; math characters for completion

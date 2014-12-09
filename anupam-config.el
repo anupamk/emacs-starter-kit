@@ -10,6 +10,15 @@
 
 (unicode-fonts-setup)
 
+;;; Font setup
+(let ((font "Source Code Pro")
+      (size (pcase system-type
+              (`darwin 13)
+              (_ 10))))
+  (if (x-family-fonts font)
+      (set-frame-font (format "%s-%s" font size) nil t)
+    (lwarn 'emacs :warning "%S font is missing!" font)))
+
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
@@ -44,4 +53,6 @@
 (require 'anupamk/gnus-bbdb)
 (require 'anupamk/magit-config)
 (require 'anupamk/diff-hl-mode-config)
+(require 'anupamk/completion-config)
+(require 'anupamk/rainbow)
 
