@@ -37,9 +37,6 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
 	default-frame-alist '(
-			      (cursor-type . '(hbar . 2))
-			      (cursor-in-non-selected-windows . 'hollow)
-			      
 			      ;; basic stuff is same for all frames
 			      (cursor-color . "dark red")
 
