@@ -33,17 +33,12 @@
     xcscope				; emacs cscope interface
     revive				; emacs-session save/restore
 
-    ;; file-handling
-    ignoramus				; ignore uninteresting files
-    launch				; Launch files and directories using the os associated applications
+    ;; completion
+    company				; auto completion
 
     ;; fonts and stuff
     unicode-fonts			; unicode font setup
     diminish				; keep mode-line clean
-
-    ;; completion
-    company				; auto completion
-    company-math			; math characters for completion
 
     ;; navigation
     buffer-move

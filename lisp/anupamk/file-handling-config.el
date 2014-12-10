@@ -9,13 +9,20 @@
   (save-some-buffers 'dont-ask))
 (add-hook 'focus-out-hook #'anupamk:force-save-some-buffers)
 
+
 ;; dired customizations
-(require 'dired-x)
+(require 'dired)
 
-(setq dired-auto-revert-buffer t					     ; always revert dired buffers on revisiting
-      dired-listing-switches "-alh --group-directories-first --time-style=+" ; human readable sizes by default
-      dired-recursive-copies 'always					     ; stop prompting for recursive operations
-      )
+(setq dired-omit-files-p t
+      dired-recursive-copies 'always	; stop prompting for recursive operations
+      dired-omit-files "\\|^\\..+$"
+      dired-listing-switches "-l -a --dired --group-directories-first -h -G"
+      dired-no-confirm '(byte-compile chgrp chmod chown
+				      copy delete load move symlink))
+
+;; dired-x is include in emacs, but not loaded by default
+(add-hook 'dired-load-hook (lambda () (load "dired-x")))
+(setq-default dired-omit-mode t)
 
 
 ;; track recent files
@@ -31,8 +38,7 @@
         recentf-exclude (list "/\\.git/.*\\'" ; Git contents
                               "/elpa/.*\\'" ; Package files
                               "/itsalltext/" ; It's all text temp files
-                              ;; And all other kinds of boring files
-                              #'ignoramus-boring-p))
+			      ))
 
 ;; open recent files with ido
 ;; http://emacsredux.com/blog/2013/04/05/recently-visited-files/
@@ -44,9 +50,6 @@
         (find-file file))))  
 
 
-;; ignore uninteresting files
-(ignoramus-setup)
-
 ;; save bookmarks immediately after bookmark is added
 (setq bookmark-save-flag 1)
 
