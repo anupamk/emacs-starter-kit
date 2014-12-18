@@ -45,7 +45,7 @@
 			    "/anupam.kapoor@gmail.com/[Gmail].Trash"))
 
       mu4e-maildir-shortcuts '(
-			       ("/akapoor@parallelwireless.com/All Mail" . ?w)
+			       ("/akapoor@parallelwireless.com/INBOX" . ?w)
 			       ("/anupam.kapoor@gmail.com/INBOX" . ?p)
 			       )
 
@@ -91,6 +91,20 @@
 	     '("browser-view" . mu4e-msgv-action-view-in-browser) t)
 (add-to-list 'mu4e-headers-actions
 	     '("browser-view" . mu4e-msgv-action-view-in-browser) t)
+
+;; https://groups.google.com/d/msg/mu-discuss/dNvZSazm_Ms/p3t9isE6a_kJ
+(setq shr-width fill-column)
+(setq shr-bullet " ")
+
+(defun shr-html2text ()
+  "Replacement for standard html2text using shr."
+  (interactive)
+  (let ((dom (libxml-parse-html-region (point-min) (point-max))))
+    (erase-buffer)
+    (shr-insert-document dom)
+    (goto-char (point-min))))
+
+(setq mu4e-html2text-command 'shr-html2text)
 
 
 ;; the headers to show in the headers list -- a pair of a field
