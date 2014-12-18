@@ -34,9 +34,6 @@
             (linux-c-mode)
             (modify-syntax-entry ?_ "w") ; '_' is not a modifier anymore.
             (fold-long-comment-lines)
-
-            ;; spelling correction in comments, you don't say ;)
-            (flyspell-prog-mode)
             ))
 
 

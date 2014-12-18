@@ -12,5 +12,8 @@
 
 ;; Font lock for numeric literals
 (add-hook 'prog-mode-hook #'highlight-numbers-mode)
+
+;; enable spelling correction in comments
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
 (provide 'anupamk/prog-mode-config)
