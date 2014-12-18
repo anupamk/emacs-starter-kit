@@ -59,6 +59,9 @@
     anaconda-mode			; documentation, lookup and navigation
     company-anaconda			; company integration for anaconda
 
+    ;; golang
+    go-mode				; golang mode
+
     ;; version-control
     diff-hl
 
