@@ -17,6 +17,7 @@
 
 ;;; ----------------------------------------------------------------
 ;;; move cursor to different frames without mouse
+(setq windmove-wrap-around t)
 (global-set-key '[C-M-up]    'windmove-up)
 (global-set-key '[C-M-down]  'windmove-down)
 (global-set-key '[C-M-left]  'windmove-left)
