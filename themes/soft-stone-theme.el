@@ -25,9 +25,11 @@
 (custom-theme-set-faces
  'soft-stone
  '(default ((t (:background "#afaca4" :foreground "#000000"))))
+ 
  ;;
  ;; background: my stuff looks better
  ;; '(default ((t (:background "gray55" :foreground "#000000"))))
+ ;; 
 
 
  '(font-lock-builtin-face ((t (:foreground "#9e0045"))))
@@ -38,27 +40,15 @@
  '(cursor ((t (:background "#626262"))))
  '(show-paren-match-face ((t (:background "#f03f3f"))))
  '(isearch ((t (:bold t :foreground "#f03f3f" :background "#e2e2e5"))))
-
- ;; 
- ;; mode-line: my stuff looks better
- ;; 
- ;; '(mode-line ((t (:box (:line-width 1 :color nil :style nil) :bold t :foreground "#000000" :background "#afaca4"))))
- ;; '(mode-line ((t (:foreground "#000000" :background "#9f9c94"))))
- ;; '(mode-line-inactive ((t (:box (:line-width 1 :color nil :style pressed-button) :foreground "#808080" :background "#d7cdb8"))))
- ;; '(mode-line-buffer-id ((t (:bold t :foreground "#121212" :background nil))))
- ;; '(mode-line-highlight ((t (:background "#808080"))))
- ;; 
- 
  '(vertical-border ((t (:foreground "#232323"))))
  '(minibuffer-prompt ((t (:bold t :foreground "#121212"))))
  '(default-italic ((t (:italic t))))
  '(font-lock-comment-face ((t (:foreground "#373737"))))
- '(font-lock-negation-char-face ((t (:foreground "#ff6523"))))
  '(font-lock-reference-face ((t (:foreground "#b7c2d7"))))
  '(font-lock-constant-face ((t (:foreground "#374014"))))
  '(font-lock-doc-face ((t (:foreground "#373737"))))
- '(font-lock-function-name-face ((t (:foreground "#340557" :bold t))))
- '(font-lock-keyword-face ((t (:bold t :foreground "#490026"))))
+ '(font-lock-function-name-face ((t (:foreground "#340557"))))
+ '(font-lock-keyword-face ((t (:foreground "#490026"))))
  '(font-lock-string-face ((t (:foreground "#0f126e"))))
  '(font-lock-type-face ((t (:foreground "#014500"))))
  '(font-lock-variable-name-face ((t (:foreground "#014500"))))

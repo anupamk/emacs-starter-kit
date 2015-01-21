@@ -65,3 +65,4 @@
 (require 'anupamk/c-mode-config)
 (require 'anupamk/go-mode-config)
 (require 'anupamk/yang-mode-config)
+(require 'anupamk/xcscope-config)
