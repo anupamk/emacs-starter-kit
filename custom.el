@@ -72,6 +72,7 @@
  '(flyspell-duplicate ((t nil)))
  '(flyspell-incorrect ((t (:weight normal))))
  '(font-lock-comment-delimiter-face ((t (:foreground "gray40"))))
+ '(font-lock-function-name-face ((t (:foreground "#340557"))))
  '(font-lock-preprocessor-face ((t (:foreground "blue4"))))
  '(gnus-cite-5 ((t (:foreground "gray30"))))
  '(gnus-group-mail-3 ((t (:foreground "dark red"))))
@@ -79,6 +80,7 @@
  '(gnus-group-news-3 ((t (:weight normal))))
  '(lazy-highlight ((t (:background "gray55"))))
  '(message-cited-text ((t (:foreground "gray20"))))
- '(sh-quoted-exec ((t (:foreground "#660000"))) t)
+ '(sh-heredoc ((t (:foreground "dark green"))))
+ '(sh-quoted-exec ((t (:foreground "#660000"))))
  '(variable-pitch ((t nil))))
 
