@@ -67,3 +67,4 @@
 (require 'anupamk/python-mode-config)
 (require 'anupamk/c-mode-config)
 (require 'anupamk/go-mode-config)
+(require 'anupamk/xcscope-config)
