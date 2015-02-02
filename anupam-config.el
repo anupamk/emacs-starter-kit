@@ -22,7 +22,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-file "~/.emacs.d/themes/soft-stone-theme.el")
+  (load-file "~/.emacs.d/themes/zenburn-theme.el")
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
@@ -38,7 +38,7 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
 	default-frame-alist '(
 			      ;; basic stuff is same for all frames
-			      (cursor-color . "dark red")
+			      (cursor-color . "gold")
 
 			      ;; add more frame-specific stuff here
 			      )
