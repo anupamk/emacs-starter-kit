@@ -11,7 +11,7 @@
 (unicode-fonts-setup)
 
 ;;; Font setup
-(let ((font "Source Code Pro")
+(let ((font "Terminus")
       (size (pcase system-type
               (`darwin 13)
               (_ 10))))
@@ -66,3 +66,8 @@
 (require 'anupamk/go-mode-config)
 (require 'anupamk/yang-mode-config)
 (require 'anupamk/xcscope-config)
+
+;; mail+news related settings
+(require 'anupamk/mu4e-config)
+(require 'anupamk/gnus)
+(require 'anupamk/gnus-bbdb)
