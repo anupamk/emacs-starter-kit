@@ -14,7 +14,7 @@
 (let ((font "Terminus")
       (size (pcase system-type
               (`darwin 13)
-              (_ 10))))
+              (_ 9))))
   (if (x-family-fonts font)
       (set-frame-font (format "%s-%s" font size) nil t)
     (lwarn 'emacs :warning "%S font is missing!" font)))
@@ -22,7 +22,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-file "~/.emacs.d/themes/zenburn-theme.el")
+  (load-theme 'zenburn t)
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
