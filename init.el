@@ -136,3 +136,4 @@
   )
 
 (load my:emacs-configs)
+(put 'downcase-region 'disabled nil)

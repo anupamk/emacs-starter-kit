@@ -122,7 +122,7 @@
   (message "personal mail account")
   (setq user-mail-address      "anupam.kapoor@gmail.com"
 	user-full-name         "Anupam Kapoor"
-	mu4e-compose-signature "\n---\nkind regards\nanupam"
+	mu4e-compose-signature "\nkind regards\nanupam"
 
 	;; add appropriate maildirs here
 	mu4e-sent-folder   "/anupam.kapoor@gmail.com/[Gmail].Sent Mail"
@@ -161,8 +161,10 @@
 
 			((check-rx-message-fields:to-cc-bcc msg (list "anupam.kapoor@gmail.com"))
 			 (anupamk:mu4e-personal))
-
-			)))))
+			))
+	      ;; this is the default if 
+	      (anupamk:mu4e-parallel-wireless)
+	      )))
 
 ;; fancy announce mechanism for email
 (add-hook 'mu4e-index-updated-hook

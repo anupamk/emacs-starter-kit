@@ -50,16 +50,22 @@
  '(tab-stop-list (number-sequence 8 200 8))
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(gnus-summary-normal-read ((t (:foreground "gray40"))))
+;;  '(message-header-name ((t (:foreground "gray50"))))
+;;  '(mu4e-contact-face ((t (:foreground "gold3"))))
+;;  '(mu4e-header-highlight-face ((t (:background "gray30"))))
+;;  '(mu4e-header-key-face ((t (:foreground "gray50"))))
+;;  '(mu4e-header-value-face ((t (:foreground "gray60"))))
+;;  '(mu4e-unread-face ((t (:foreground "#7f9f7f"))))
+;;  '(show-paren-match ((t (:background "gray28")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(gnus-summary-normal-read ((t (:foreground "gray40"))))
- '(message-header-name ((t (:foreground "gray50"))))
- '(mu4e-contact-face ((t (:foreground "gold3"))))
- '(mu4e-header-highlight-face ((t (:background "gray30"))))
- '(mu4e-header-key-face ((t (:foreground "gray50"))))
- '(mu4e-header-value-face ((t (:foreground "gray60"))))
- '(mu4e-unread-face ((t (:foreground "#7f9f7f"))))
- '(show-paren-match ((t (:background "gray28")))))
+ '(default ((t (:family "M+ 1mn" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
