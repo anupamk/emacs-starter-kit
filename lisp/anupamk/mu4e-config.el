@@ -112,10 +112,12 @@
 ;; (better only use that for the last field.
 ;; These are the defaults:
 (setq mu4e-headers-fields
-    '( (:date          .  25)
-       (:flags         .   6)
-       (:from          .  22)
-       (:subject       .  nil)))
+      '(
+	(:date     .  32)
+	(:flags    .  10)
+	(:from     .  64)
+	(:subject  .  nil)		; occupy remaining space...
+	))
 
 (defun anupamk:mu4e-personal ()
   (interactive)
@@ -154,16 +156,28 @@
 (add-hook 'mu4e-compose-pre-hook
           (defun my-set-from-address ()
             "Set current identity based on to, cc, bcc of original."
-            (let ((msg mu4e-compose-parent-message)) ;; msg is shorter...
+            (let ((msg mu4e-compose-parent-message))
               (if msg
-                  (cond ((check-rx-message-fields:to-cc-bcc msg (list "akapoor@parallelwireless.com"))
-			 (anupamk:mu4e-parallel-wireless))
+                  (cond
+		   (
+		    ;; official email settings for these lists
+		    (check-rx-message-fields:to-cc-bcc msg (list
+							    "akapoor@parallelwireless.com"
+							    ))
+		    (anupamk:mu4e-parallel-wireless))
 
-			((check-rx-message-fields:to-cc-bcc msg (list "anupam.kapoor@gmail.com"))
-			 (anupamk:mu4e-personal))
-			))
-	      ;; this is the default if 
-	      (anupamk:mu4e-parallel-wireless)
+		   (
+		    ;; personal settings for these lists
+		    (check-rx-message-fields:to-cc-bcc msg (list
+							    "anupam.kapoor@gmail.com"
+							    "kernelnewbies@kernelnewbies.org"
+							    ))
+		    (anupamk:mu4e-personal))
+
+		   ;; by default start using the official email configuration
+		   (t
+		    (anupamk:mu4e-parallel-wireless))
+		   ))
 	      )))
 
 ;; fancy announce mechanism for email
@@ -171,7 +185,6 @@
 	  (lambda ()
 	    (shell-command (concat "/home/anupam/.emacs.d/lisp/anupamk/announce-new-mail "
 				   (number-to-string mu4e-update-interval)))))
-
 
 ;;; ----------------------------------------------------------------
 ;;; anupamk/mu4e-config ends here
