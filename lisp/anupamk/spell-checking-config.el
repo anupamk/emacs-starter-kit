@@ -20,7 +20,6 @@
 
 (dolist (hook '(text-mode-hook message-mode-hook))
   (add-hook hook 'turn-on-flyspell))
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 
 (provide 'anupamk/spell-checking-config)

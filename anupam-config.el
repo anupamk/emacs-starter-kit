@@ -22,7 +22,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-theme 'sanityinc-tomorrow-eighties t)
+  (load-theme 'sanityinc-tomorrow-night t)
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
@@ -48,7 +48,7 @@
 
 ;;; --------------------------------------------------------------------------------
 ;;; other useful stuff
-(require 'anupamk/modeline)
+;; (require 'anupamk/modeline)
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
