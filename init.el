@@ -54,6 +54,7 @@
     highlight-numbers			; syntax highlighting for numeric literals
     rainbow-delimiters			; color delimiters by level
     rainbow-mode			; show colors as they are
+    clean-aindent-mode			; Simple indent and unindent, trims indent white-space
 
     ;; python
     anaconda-mode			; documentation, lookup and navigation

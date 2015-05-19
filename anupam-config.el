@@ -49,6 +49,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; other useful stuff
 ;; (require 'anupamk/modeline)
+(require 'anupamk/clean-aindent-mode-config)
 (require 'anupamk/keyboard)
 (require 'anupamk/revive)
 (require 'anupamk/multi-term)
