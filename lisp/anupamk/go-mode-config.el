@@ -16,9 +16,6 @@
 (add-hook 'go-mode-hook
           (lambda ()
 
-	    ;; spelling correction comments and strings only
-	    (flyspell-prog-mode)
-
 	    ;; remove unused imports
 	    (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
 

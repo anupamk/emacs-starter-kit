@@ -66,7 +66,9 @@
 ;; mode specific customizations here.
 
 ;; enable flyspell in different modes here.
-(dolist (hook '(text-mode-hook))
+(dolist (hook '(text-mode-hook
+		prog-mode-hook
+		))
   (add-hook hook (lambda() (flyspell-mode t))))
 
 ;; disable flyspell in different modes here.
