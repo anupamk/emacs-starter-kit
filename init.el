@@ -10,11 +10,11 @@
 (setq load-prefer-newer t)
 
 (require 'package)
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
+(package-initialize)
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
-
-(package-initialize)
 
 ;; Install all required packages if absent
 (defconst anupamk-required-packages
@@ -74,6 +74,9 @@
     gitattributes-mode			; git attributes mode
     git-rebase-mode			; mode for git rebase -i
     git-timemachine			; go back in (git) time
+
+    ;; one and only theme
+    zenburn-theme			; nothing else does it for me anymore :)
     )
   "packages need for my configuration"
   )

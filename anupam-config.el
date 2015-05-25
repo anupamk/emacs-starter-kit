@@ -3,6 +3,7 @@
 
 ;; add ~/.emacs.d to the load-path
 (add-to-list 'load-path "~/.emacs.d/anupamk")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;;; --------------------------------------------------------------------------------
 ;;; generic stuff
@@ -22,7 +23,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-theme 'sanityinc-tomorrow-night t)
+  (load-theme 'zenburn t)
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
@@ -68,7 +69,9 @@
 (require 'anupamk/yang-mode-config)
 (require 'anupamk/xcscope-config)
 
-;; mail+news related settings
-(require 'anupamk/mu4e-config)
-(require 'anupamk/gnus)
-(require 'anupamk/gnus-bbdb)
+;; mail+news related settings not on development machines
+(when (not (string= system-name "devel-vm"))
+  (progn
+    (require 'anupamk/mu4e-config)
+    (require 'anupamk/gnus)
+    (require 'anupamk/gnus-bbdb)))
