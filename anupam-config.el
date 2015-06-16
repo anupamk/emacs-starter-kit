@@ -22,7 +22,7 @@
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
 (when window-system
-  (load-theme 'sanityinc-tomorrow-night t)
+  (load-theme 'zenburn t)
   (global-hl-line-mode)
   (load custom-file 'noerror))
 
