@@ -12,8 +12,8 @@
 ;;
 (setq mu4e-debug t 			; leave it on-for-now
 
-      ;; synchronize with offlineimap, every 5 minutes
-      mu4e-get-mail-command "offlineimap -u basic -l ~/.offlineimap/logs/log-`date +%b-%Y`"
+      ;; synchronize with mbsync, every 5 minutes
+      mu4e-get-mail-command "/usr/bin/mbsync --all --debug --verbose | tee >> ~/logs/log-`date +%b-%Y`"
       mu4e-update-interval 300
 
       ;; iso(ish) date-time format
@@ -36,16 +36,17 @@
 
       ;; top-level mail-directory, all paths are relative to this
       mu4e-maildir       "/home/anupam/Mail"
-      mu4e-sent-folder   "/akapoor@parallelwireless.com/Sent Mail"
-      mu4e-drafts-folder "/akapoor@parallelwireless.com/Drafts"
+      mu4e-sent-folder   "/pw-office-365/Sent Items"
+      mu4e-drafts-folder "/pw-office-365/Drafts"
       mu4e-trash-folder (lambda (msg)
 			  (if (and msg ;; msg may be nil
 				   (mu4e-message-contact-field-matches msg :to ".*@parallelwireless.com"))
-			      "/akapoor@parallelwireless.com/Trash"
+			      "/pw-office-365/Junk Email"
 			    "/anupam.kapoor@gmail.com/[Gmail].Trash"))
 
       mu4e-maildir-shortcuts '(
-			       ("/akapoor@parallelwireless.com/INBOX" . ?w)
+			       ("/pw-office-365/INBOX" . ?w)
+			       ;;("/akapoor@parallelwireless.com/INBOX" . ?o)
 			       ("/anupam.kapoor@gmail.com/INBOX" . ?p)
 			       )
 
@@ -132,16 +133,29 @@
 	mu4e-trash-folder  "/anupam.kapoor@gmail.com/[Gmail].Trash"
 	))
 
-(defun anupamk:mu4e-parallel-wireless()
+;; (defun anupamk:mu4e-parallel-wireless()
+;;   (interactive)
+;;   (message "parallel-wireless account")
+;;   (setq  user-mail-address      "akapoor@parallelwireless.com"
+;;          user-full-name         "Anupam Kapoor"
+;;          mu4e-compose-signature "\n---\nthanks\nanupam"
+
+;; 	 mu4e-sent-folder   "/akapoor@parallelwireless.com/Sent Mail"
+;; 	 mu4e-drafts-folder "/akapoor@parallelwireless.com/Drafts"
+;; 	 mu4e-trash-folder  "/akapoor@parallelwireless.com/Trash"
+;; 	 ))
+
+
+(defun anupamk:mu4e-parallel-wireless-office-365()
   (interactive)
-  (message "parallel-wireless account")
+  (message "parallel-wireless-office-365 account")
   (setq  user-mail-address      "akapoor@parallelwireless.com"
          user-full-name         "Anupam Kapoor"
          mu4e-compose-signature "\n---\nthanks\nanupam"
 
-	 mu4e-sent-folder   "/akapoor@parallelwireless.com/Sent Mail"
-	 mu4e-drafts-folder "/akapoor@parallelwireless.com/Drafts"
-	 mu4e-trash-folder  "/akapoor@parallelwireless.com/Trash"
+	 mu4e-sent-folder   "/pw-office-365/Sent Items"
+	 mu4e-drafts-folder "/pw-office-365/Drafts"
+	 mu4e-trash-folder  "/pw-office-365/Junk Email"
 	 ))
 
 
@@ -164,7 +178,7 @@
 		    (check-rx-message-fields:to-cc-bcc msg (list
 							    "akapoor@parallelwireless.com"
 							    ))
-		    (anupamk:mu4e-parallel-wireless))
+		    (anupamk:mu4e-parallel-wireless-office-365))
 
 		   (
 		    ;; personal settings for these lists
@@ -176,7 +190,7 @@
 
 		   ;; by default start using the official email configuration
 		   (t
-		    (anupamk:mu4e-parallel-wireless))
+		    (anupamk:mu4e-parallel-wireless-office-365))
 		   ))
 	      )))
 
