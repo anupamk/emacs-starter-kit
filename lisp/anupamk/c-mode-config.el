@@ -65,7 +65,7 @@
 	    (fold-long-comment-lines)
 	    (setq indent-tabs-mode t)
 	    (setq show-trailing-whitespace t)
-	    (c-set-style "linux-tabs-only")))
+	    (c-set-style "linux")))
 
 (add-hook 'c++-mode-hook
           (lambda ()

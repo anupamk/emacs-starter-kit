@@ -61,7 +61,6 @@
 (require 'anupamk/completion-config)
 (require 'anupamk/rainbow)
 (require 'anupamk/file-handling-config)
-(require 'anupamk/spell-checking-config)
 (require 'anupamk/prog-mode-config)
 (require 'anupamk/python-mode-config)
 (require 'anupamk/c-mode-config)
@@ -72,6 +71,22 @@
 ;; mail+news related settings not on development machines
 (when (not (string= system-name "devel-vm"))
   (progn
+    (require 'anupamk/spell-checking-config)
     (require 'anupamk/mu4e-config)
     (require 'anupamk/gnus)
     (require 'anupamk/gnus-bbdb)))
+
+
+;; 
+;; NOTE: flyspell mode for programming is not useful at all....
+;; 
+;; ;;
+;; ;; once everything is loaded up, let's enable flyspell checking in
+;; ;; programming mode comments only
+;; ;;
+;; (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
+;;         '(c-mode-hook
+;; 	  c++-mode-hook
+;; 	  python-mode-hook
+;; 	  emacs-lisp-mode-hook
+;; 	  java-mode-hook))

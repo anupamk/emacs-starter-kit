@@ -93,6 +93,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 90 :width normal))))
  '(bold ((t (:weight normal))))
+ '(cscope-file-face ((t (:foreground "gray50"))))
+ '(cscope-function-face ((t (:foreground "gold3"))))
  '(font-lock-builtin-face ((t (:foreground "#DCDCCC" :weight normal))))
  '(font-lock-keyword-face ((t (:foreground "#F0DFAF" :weight normal))))
- '(show-paren-match ((t (:background "gray27" :weight normal)))))
+ '(show-paren-match ((t (:background "gray22" :weight normal)))))
