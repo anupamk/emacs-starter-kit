@@ -9,6 +9,14 @@
    nil '(("\\<\\(ATTN\\|TODO\\|FIX\\|FIXME\\|HACK\\):?"
           1 font-lock-warning-face t))))
 
+;; colorize compilation buffers rather than ansi-escape-sequences...
+(ignore-errors
+  (require 'ansi-color)
+  (defun my-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
+
 ;; 
 ;; some common settings
 ;; 
@@ -48,15 +56,6 @@
 	 (steps (floor offset c-basic-offset)))
     (* (max steps 1)
        c-basic-offset)))
-
-(add-hook 'c-mode-common-hook
-          (lambda ()
-
-	    ;; Add kernel style
-            (c-add-style "linux-tabs-only"
-			 '("linux" (c-offsets-alist (arglist-cont-nonempty
-						     c-lineup-gcc-asm-reg
-						     c-lineup-arglist-tabs-only))))))
 
 (add-hook 'c-mode-hook
           (lambda ()

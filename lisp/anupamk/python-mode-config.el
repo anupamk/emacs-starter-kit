@@ -11,6 +11,9 @@
 ;; Lookup, navigation and completion
 (add-hook 'python-mode-hook #'anaconda-mode)
 
+;; setup sane indentation.
+(setq python-indent-offset 8)
+
 ;; Use a decent syntax and style checker
 (setq python-check-command "pylint")
 
