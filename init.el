@@ -32,6 +32,7 @@
     autopair				;
     xcscope				; emacs cscope interface
     revive				; emacs-session save/restore
+    shackle				; Enforce rules for popup windows
 
     ;; completion
     company				; auto completion
