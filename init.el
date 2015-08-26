@@ -33,6 +33,7 @@
     xcscope				; emacs cscope interface
     revive				; emacs-session save/restore
     shackle				; Enforce rules for popup windows
+    window-purpose			; Manage Windows and Buffers According to Purposes
 
     ;; completion
     company				; auto completion
