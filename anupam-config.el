@@ -67,6 +67,8 @@
 (require 'anupamk/go-mode-config)
 (require 'anupamk/yang-mode-config)
 (require 'anupamk/xcscope-config)
+(require 'anupamk/bookmark-config)
+(require 'anupamk/window-purpose-config)
 
 ;; mail+news related settings
 (require 'anupamk/mu4e-config)
