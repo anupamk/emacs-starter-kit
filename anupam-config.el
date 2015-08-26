@@ -67,6 +67,7 @@
 (require 'anupamk/go-mode-config)
 (require 'anupamk/yang-mode-config)
 (require 'anupamk/xcscope-config)
+(require 'anupamk/shackle-config)
 
 ;; mail+news related settings not on development machines
 (when (not (string= system-name "devel-vm"))
