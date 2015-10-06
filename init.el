@@ -24,6 +24,7 @@
     multi-term				; terminal
     page-break-lines                    ; page breaks
     volatile-highlights			; certain editing operations
+    bm					; visible bookmarks in buffer
 
     ;; utilities
     google-this				; google from emacs
@@ -48,6 +49,10 @@
     ido-ubiquitous			; use ido everywhere
     ido-vertical-mode			; show ido vertically
 
+    ;; ido seems to be too intrusive. let's check helm out
+    helm
+    helm-cscope				; helm interface for cscope
+
     ;; editing helpers
     whitespace-cleanup-mode		; cleanup whitespace on save
 
@@ -70,12 +75,10 @@
 
     ;; magit integration
     magit				; git frontend
-    git-commit-mode			; git commit message mode
     gitconfig-mode			; git configuration mode
     gitignore-mode			; .gitignore mode
     gitattributes-mode			; git attributes mode
-    git-rebase-mode			; mode for git rebase -i
-    git-timemachine			; go back in (git) time
+    git-commit
     )
   "packages need for my configuration"
   )

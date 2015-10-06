@@ -12,17 +12,15 @@
 
 ;; dired customizations
 (require 'dired)
+(require 'dired-x)
 
-(setq dired-omit-files-p t
-      dired-recursive-copies 'always	; stop prompting for recursive operations
-      dired-omit-files "\\|^\\..+$"
-      dired-listing-switches "-l -a --dired --group-directories-first -h -G"
+(setq-default dired-omit-files-p t) ; Buffer-local variable
+(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+
+(setq dired-recursive-copies 'always	; stop prompting for recursive operations
+      dired-listing-switches "--si -aBhlrt --group-directories-first"
       dired-no-confirm '(byte-compile chgrp chmod chown
 				      copy delete load move symlink))
-
-;; dired-x is include in emacs, but not loaded by default
-(add-hook 'dired-load-hook (lambda () (load "dired-x")))
-(setq-default dired-omit-mode t)
 
 
 ;; track recent files
@@ -40,14 +38,14 @@
                               "/itsalltext/" ; It's all text temp files
 			      ))
 
-;; open recent files with ido
-;; http://emacsredux.com/blog/2013/04/05/recently-visited-files/
-(defun anupamk:ido-find-recentf ()
-    "Find a recent file with IDO."
-    (interactive)
-    (let ((file (ido-completing-read "Find recent file: " recentf-list nil t)))
-      (when file
-        (find-file file))))  
+;; ;; open recent files with ido
+;; ;; http://emacsredux.com/blog/2013/04/05/recently-visited-files/
+;; (defun anupamk:ido-find-recentf ()
+;;     "Find a recent file with IDO."
+;;     (interactive)
+;;     (let ((file (ido-completing-read "Find recent file: " recentf-list nil t)))
+;;       (when file
+;;         (find-file file))))  
 
 
 ;; save bookmarks immediately after bookmark is added

@@ -8,11 +8,12 @@
       magit-set-upstream-on-push t
 
       ;; Use IDO for completion
-      magit-completing-read-function #'magit-ido-completing-read)
+      ;; magit-completing-read-function #'magit-ido-completing-read
+      )
 
-;; Auto-revert files after Magit operations
-(magit-auto-revert-mode)
-(setq magit-auto-revert-mode-lighter "")
+;; ;; Auto-revert files after Magit operations
+;; (magit-auto-revert-mode)
+;; (setq magit-auto-revert-mode-lighter "")
 
 ;;
 ;; anupamk/magit-config ends here
