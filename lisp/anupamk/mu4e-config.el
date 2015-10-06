@@ -13,7 +13,8 @@
 (setq mu4e-debug t 			; leave it on-for-now
 
       ;; synchronize with mbsync, every 5 minutes
-      mu4e-get-mail-command "/usr/bin/mbsync --all --debug --verbose | tee >> ~/logs/log-`date +%b-%Y`"
+      ;;mu4e-get-mail-command "/usr/bin/mbsync --all --debug --verbose | tee >> ~/logs/log-`date +%b-%Y`"
+      mu4e-get-mail-command "/usr/bin/mbsync --all | tee >> ~/logs/log-`date +%b-%Y`"
       mu4e-update-interval 300
 
       ;; iso(ish) date-time format
