@@ -21,8 +21,5 @@
 (dolist (hook '(text-mode-hook message-mode-hook))
   (add-hook hook 'turn-on-flyspell))
 
-;; for all programming modes
-(add-hook 'prog-mode-hook #'flyspell-prog-mode)
-
 
 (provide 'anupamk/spell-checking-config)
