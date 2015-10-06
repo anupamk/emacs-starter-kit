@@ -10,11 +10,11 @@
 (setq load-prefer-newer t)
 
 (require 'package)
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
+(package-initialize)
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
-
-(package-initialize)
 
 ;; Install all required packages if absent
 (defconst anupamk-required-packages
@@ -33,7 +33,6 @@
     autopair				;
     xcscope				; emacs cscope interface
     revive				; emacs-session save/restore
-    shackle				; Enforce rules for popup windows
     window-purpose			; Manage Windows and Buffers According to Purposes
 
     ;; completion
