@@ -22,10 +22,18 @@
 
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
-(when window-system
-  (load-theme 'zenburn t)
-  (global-hl-line-mode)
-  (load custom-file 'noerror))
+;; (when window-system
+;;   (load-theme 'zenburn t)
+;;   (global-hl-line-mode)
+;;   (load custom-file 'noerror))
+
+;; here we go once again
+;; (require 'color-theme-sanityinc-tomorrow)
+;; (load-theme 'ample t t)
+;; (load-theme 'ample-flat t t)
+(load-theme 'soft-stone)
+;; (load-theme 'ample-light t t)
+
 
 
 ;; volatile highlights
@@ -39,7 +47,7 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
 	default-frame-alist '(
 			      ;; basic stuff is same for all frames
-			      (cursor-color . "gold")
+			      (cursor-color . "dark red")
 
 			      ;; add more frame-specific stuff here
 			      )
@@ -68,6 +76,7 @@
 (require 'anupamk/yang-mode-config)
 (require 'anupamk/xcscope-config)
 (require 'anupamk/window-purpose-config)
+(require 'anupamk/helm)
 
 ;; mail+news related settings not on development machines
 (when (not (string= system-name "devel-vm"))
