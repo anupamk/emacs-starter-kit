@@ -1,15 +1,9 @@
 ;;; --------------------------------------------------------------------------------
 ;;; my personal settings
 
-;; add ~/.emacs.d to the load-path
-(add-to-list 'load-path "~/.emacs.d/anupamk")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
 ;;; --------------------------------------------------------------------------------
 ;;; generic stuff
 (require 'anupamk/meta)
-
-(unicode-fonts-setup)
 
 ;;; Font setup
 (let ((font "Terminus")
@@ -22,17 +16,10 @@
 
 ;;; --------------------------------------------------------------------------------
 ;;; color-theme
-;; (when window-system
-;;   (load-theme 'zenburn t)
-;;   (global-hl-line-mode)
-;;   (load custom-file 'noerror))
-
-;; here we go once again
-;; (require 'color-theme-sanityinc-tomorrow)
-;; (load-theme 'ample t t)
-;; (load-theme 'ample-flat t t)
-(load-theme 'soft-stone)
-;; (load-theme 'ample-light t t)
+(when window-system
+  (load-theme 'zenburn t)
+  (global-hl-line-mode)
+  (load custom-file 'noerror))
 
 
 
@@ -47,13 +34,11 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
 	default-frame-alist '(
 			      ;; basic stuff is same for all frames
-			      (cursor-color . "dark red")
+			      (cursor-color . "tan1")
 
 			      ;; add more frame-specific stuff here
 			      )
 	))
-
-(load custom-file 'noerror)
 
 ;;; --------------------------------------------------------------------------------
 ;;; other useful stuff
