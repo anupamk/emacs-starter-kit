@@ -17,7 +17,7 @@
 (add-to-list 'purpose-user-mode-purposes '(asm-mode . c-file-purpose))
 (add-to-list 'purpose-user-mode-purposes '(c++-mode . c-file-purpose))
 (add-to-list 'purpose-user-mode-purposes '(cscope-list-entry-mode . cscope-purpose))
-(add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation-mode))
+(add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation-purpose))
 
 ;; build it
 (purpose-compile-user-configuration)
