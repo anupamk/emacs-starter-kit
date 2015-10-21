@@ -18,6 +18,49 @@
   (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
 
 ;; 
+;; Often C programmers type blocks of code between =#if 0= and =#endif=.
+;; This code will never be compiler. Therefore some IDE's display this code
+;; as comment. With this module, emacs will also do this.
+;;
+(declare-function c-put-font-lock-face "cc-fonts")
+
+(defface never-comment-face
+  '((t :inherit font-lock-comment-face
+       :foreground "grey55"))
+  "Face for never commented text."
+  :group 'never-comment-faces)
+
+(defun never-comment--c-mode-font-lock (limit)
+  "Function that will find #if 0 blocks."
+  (save-restriction
+    (widen)
+    (save-excursion
+      (goto-char (point-min))
+      (let ((depth 0) str start start-depth)
+        (while (re-search-forward "^\\s-*#\\s-*\\(if\\|else\\|endif\\)" limit 'move)
+          (setq str (match-string 1))
+          (if (string= str "if")
+              (progn
+                (setq depth (1+ depth))
+                (when (and (null start) (looking-at "\\s-+0"))
+                  (setq start (match-end 0)
+                        start-depth depth)))
+            (when (and start (= depth start-depth))
+              (c-put-font-lock-face start (match-beginning 0) 'never-comment-face)
+              (setq start nil))
+            (when (string= str "endif")
+              (setq depth (1- depth)))))
+        (when (and start (> depth 0))
+          (c-put-font-lock-face start (point) 'never-comment-face)))))
+  nil)
+
+(defun never-comment--c-mode-common-hook ()
+  "Hook to show #if 0 blocks as comment."
+  (font-lock-add-keywords
+   nil
+   '((never-comment--c-mode-font-lock (0 never-comment-face prepend))) 'add-to-end))
+
+;; 
 ;; some common settings
 ;; 
 (setq c-hungry-delete-key t		; delete an entire block of whitespace at point
@@ -56,6 +99,11 @@
 	 (steps (floor offset c-basic-offset)))
     (* (max steps 1)
        c-basic-offset)))
+
+(add-hook 'c-initialization-hook 
+	  (lambda ()
+              (if (require 'anupamk/never-comment nil t)
+                  (add-hook 'c-mode-common-hook 'never-comment--c-mode-common-hook))))
 
 (add-hook 'c-mode-hook
           (lambda ()
