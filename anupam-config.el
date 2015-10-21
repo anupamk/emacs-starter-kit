@@ -1,10 +1,6 @@
 ;;; --------------------------------------------------------------------------------
 ;;; my personal settings
 
-;; add ~/.emacs.d to the load-path
-(add-to-list 'load-path "~/.emacs.d/anupamk")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
 ;;; --------------------------------------------------------------------------------
 ;;; generic stuff
 (require 'anupamk/meta)
@@ -44,7 +40,6 @@
 	))
 
 (load custom-file 'noerror)
-
 
 ;;; -------------------------------------------------------------------------------
 ;;; finally setup development-vm or local-machine specific configuration

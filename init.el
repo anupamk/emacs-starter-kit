@@ -10,11 +10,11 @@
 (setq load-prefer-newer t)
 
 (require 'package)
-(setq package-enable-at-startup t)
 (package-initialize)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
+(setq package-enable-at-startup t)
 
 ;; Install all required packages if absent
 (defconst anupamk-required-packages
@@ -129,6 +129,28 @@
 
 ;; add some sane paths
 (add-to-list 'load-path "~/.emacs.d/lisp")
+
+;;
+;; each theme that is installed with elpa needs it's theme-directory
+;; added to the custom-theme-load-path.
+;;
+;; the following script does it automatically (assuming that elpa
+;; packages are installed in the canonical place i.e. ~/.emacs.d/elpa)
+;;
+(require 'dash)
+(require 's)
+
+(-each
+    (-map
+     (lambda (item)
+       (format "~/.emacs.d/elpa/%s" item))
+     (-filter
+      (lambda (item) (s-contains? "theme" item))
+      (directory-files "~/.emacs.d/elpa/")))
+  (lambda (item)
+    (add-to-list 'custom-theme-load-path item)))
+
+
 
 ;; and load our configuration file
 (defconst my:emacs-configs (locate-user-emacs-file "anupam-config.el")
