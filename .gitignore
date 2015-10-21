@@ -16,4 +16,10 @@ ido.last
 elpa/*
 var/*
 ido.last
+.purpose-layout
+bookmarks
+recentf
+tramp
+.backup/*
 *~
+
