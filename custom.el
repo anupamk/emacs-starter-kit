@@ -22,16 +22,15 @@
  '(custom-theme-directory "~/.emacs.d/themes/")
  '(custom-theme-load-path (quote ("~/.emacs.d/themes/" t custom-theme-directory)))
  '(fci-rule-color "#003f8e")
- '(font-use-system-font t)
  '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(gnus-directory "~/.emacs.d/gnus/News/")
  '(gnus-startup-file "~/.emacs.d/gnus/.newsrc")
  '(gnus-startup-hook
-   (quote
-    (bbdb-insinuate-gnus
-     (lambda nil
-       (define-key gnus-summary-mode-map ":"
-	 (quote bbdb/gnus-show-all-recipients))))))
+ (quote
+  (bbdb-insinuate-gnus
+   (lambda nil
+     (define-key gnus-summary-mode-map ":"
+       (quote bbdb/gnus-show-all-recipients))))))
  '(gnutls-algorithm-priority "performance")
  '(gnutls-min-prime-bits nil)
  '(line-spacing 1)
@@ -39,12 +38,12 @@
  '(message-directory "~/.emacs.d/gnus/Mail/")
  '(message-forward-as-mime nil)
  '(message-make-forward-subject-function
-   (lambda
-     (subject)
-     (if
-	 (string-match "^FW: " subject)
-	 subject
-       (concat "FW: " subject))))
+ (lambda
+   (subject)
+   (if
+       (string-match "^FW: " subject)
+       subject
+     (concat "FW: " subject))))
  '(message-send-mail-function (quote smtpmail-send-it))
  '(message-setup-hook (quote (bbdb-insinuate-message)))
  '(mouse-wheel-mode t)
@@ -60,30 +59,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Input Mono" :foundry "FBI " :slant normal :weight light :height 98 :width normal))))
- '(bm-face ((t (:background "slategray" :foreground "White"))))
- '(bold ((t (:weight normal))))
- '(compilation-error ((t (:foreground "dark red" :weight bold))))
- '(cscope-file-face ((t (:foreground "gray50"))))
- '(cscope-function-face ((t nil)))
- '(font-lock-builtin-face ((t (:weight normal))))
- '(font-lock-comment-face ((t (:foreground "gray40"))))
- '(font-lock-constant-face ((t (:foreground "medium blue"))))
- '(font-lock-keyword-face ((t nil)))
- '(font-lock-preprocessor-face ((t (:foreground "dark red" :weight light))))
- '(font-lock-string-face ((t (:foreground "dark green"))))
- '(font-lock-type-face ((t nil)))
- '(font-lock-variable-name-face ((t nil)))
- '(highlight-symbol-face ((t (:background "gray55"))))
- '(hl-line ((t (:background "gray62"))))
- '(link ((t (:foreground "#701010" :underline t))))
- '(message-cited-text ((t (:foreground "red4"))))
- '(message-header-name ((t (:foreground "purple3"))))
- '(mu4e-contact-face ((t (:foreground "blue"))))
- '(mu4e-header-highlight-face ((t (:background "gray62" :weight bold))))
- '(mu4e-header-key-face ((t (:foreground "black" :weight bold))))
- '(mu4e-header-value-face ((t (:foreground "dark green"))))
- '(mu4e-unread-face ((t (:foreground "dark red"))))
- '(sh-quoted-exec ((t (:foreground "firebrick4"))))
- '(show-paren-match ((t (:background "gray60" :weight normal))))
- '(warning ((t (:foreground "dark red")))))
+ '(default ((t (:family "Terminus" :foundry "xos4" :slant normal :weight normal :height 90 :width normal))))
+ '(show-paren-match ((t (:background "gray28")))))
