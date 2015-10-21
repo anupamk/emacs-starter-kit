@@ -24,7 +24,6 @@
     multi-term				; terminal
     page-break-lines                    ; page breaks
     volatile-highlights			; certain editing operations
-    bm					; visible bookmarks in buffer
 
     ;; utilities
     google-this				; google from emacs
@@ -39,14 +38,10 @@
     company				; auto completion
 
     ;; fonts and stuff
-    unicode-fonts			; unicode font setup
     diminish				; keep mode-line clean
 
     ;; navigation
     buffer-move
-    flx-ido				; powerful flex-matching for ido
-    ido-ubiquitous			; use ido everywhere
-    ido-vertical-mode			; show ido vertically
 
     ;; ido seems to be too intrusive. let's check helm out
     helm
@@ -77,7 +72,7 @@
     gitconfig-mode			; git configuration mode
     gitignore-mode			; .gitignore mode
     gitattributes-mode			; git attributes mode
-    git-commit
+    git-commit				; edit git commit messages
     )
   "packages need for my configuration"
   )
